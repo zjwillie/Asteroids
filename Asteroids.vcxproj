@@ -151,7 +151,13 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Asteroids.cpp" />
+    <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\platform\SDLManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\Game.hpp" />
+    <ClInclude Include="src\platform\SDLManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
