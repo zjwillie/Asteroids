@@ -1,6 +1,4 @@
-#include <SDL3/SDL.h>
-
-//#include "core/Game.hpp"
+#include "core/Game.hpp"
 
 //*******************************************
 //*******************************************
@@ -10,9 +8,11 @@
 
 
 int main(int, char**) {
-//    Game game;
-//    game.initialize();
-//    game.run();
-//    game.shutdown();
+    Game game;
+
+    game.initialize();
+    game.run();
+    game.shutdown();
+
     return 0;
 }
