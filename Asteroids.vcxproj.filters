@@ -56,5 +56,8 @@
     <ClInclude Include="src\core\ecs\components\Velocity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\WorldContext.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
