@@ -4,6 +4,7 @@
 
 #include "../ecs/entities/EntityManager.hpp"
 #include "../platform/SDLManager.hpp"
+#include "../ecs/systems/SystemManager.hpp"
 
 class WorldContext {
 public:
@@ -16,9 +17,14 @@ public:
 		SDLManagerPtr_ = SDL_Manager;
 	}
 
+	void setSystemManager(SystemManager* systemManager) {
+		systemManagerPtr_ = systemManager;
+	}
+
 	// asserting reference acessor for each
 	EntityManager& getEntityManager();
 	SDLManager& getSDLManager();
+	SystemManager& getSystemManager();
 
 	// isValid() to check nothing is null
 	bool isValid() const;
@@ -27,4 +33,5 @@ private:
 	// non-owning pointers to entity manager and sdl manager
 	EntityManager* entityManagerPtr_ = nullptr;
 	SDLManager* SDLManagerPtr_ = nullptr;
+	SystemManager* systemManagerPtr_ = nullptr;
 };

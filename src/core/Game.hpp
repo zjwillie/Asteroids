@@ -3,6 +3,9 @@
 #include <vector>
 
 #include "../platform/SDLManager.hpp"
+#include "../ecs/entities/EntityManager.hpp"
+#include "../ecs/systems/SystemManager.hpp"
+#include "WorldContext.hpp"
 
 class Game {
 public:
@@ -11,8 +14,14 @@ public:
 	void shutdown();
 
 private:
-	SDLManager sdlManager_;
-	bool running_ = false;
+	WorldContext worldContext_;
+
+	SDLManager SDLManager_;
+	EntityManager entityManager_;
+	SystemManager systemManager_;
+
+	bool running_ = true;
+
 	std::vector<SDL_Event> frameEvents_;
 
 	float rectX_ = 0.0f;

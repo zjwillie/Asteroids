@@ -1,9 +1,9 @@
-#pragma once
-
 #include "WorldContext.hpp"
 
 bool WorldContext::isValid() const {
-	return entityManagerPtr_ != nullptr && SDLManagerPtr_ != nullptr;
+	return entityManagerPtr_ != nullptr 
+		&& SDLManagerPtr_ != nullptr
+		&& systemManagerPtr_ != nullptr;
 }
 
 EntityManager& WorldContext::getEntityManager() {
@@ -14,4 +14,9 @@ EntityManager& WorldContext::getEntityManager() {
 SDLManager& WorldContext::getSDLManager() {
 	assert(SDLManagerPtr_ && "SDLManger not initialized!");
 	return *SDLManagerPtr_;
+}
+
+SystemManager& WorldContext::getSystemManager() {
+	assert(systemManagerPtr_ && "SystemManger not initialized!");
+	return *systemManagerPtr_;
 }
