@@ -156,6 +156,7 @@
     <ClCompile Include="src\platform\SDLManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\ecs\entities\EntityHandle.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
   </ItemGroup>
