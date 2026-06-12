@@ -41,5 +41,8 @@
     <ClInclude Include="src\core\ecs\entities\EntityManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\ecs\components\ComponentStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
