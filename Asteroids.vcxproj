@@ -151,20 +151,22 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\core\ecs\entities\EntityManager.cpp" />
+    <ClCompile Include="src\core\WorldContext.cpp" />
+    <ClCompile Include="src\ecs\entities\EntityHandle.cpp" />
+    <ClCompile Include="src\ecs\entities\EntityManager.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\core\ecs\components\ComponentStore.hpp" />
-    <ClInclude Include="src\core\ecs\components\Sprite.hpp" />
-    <ClInclude Include="src\core\ecs\components\Transform.hpp" />
-    <ClInclude Include="src\core\ecs\components\Velocity.hpp" />
-    <ClInclude Include="src\core\ecs\entities\EntityHandle.hpp" />
-    <ClInclude Include="src\core\ecs\entities\EntityManager.hpp" />
+    <ClInclude Include="src\ecs\components\ComponentStore.hpp" />
+    <ClInclude Include="src\ecs\components\Sprite.hpp" />
+    <ClInclude Include="src\ecs\components\Transform.hpp" />
+    <ClInclude Include="src\ecs\components\Velocity.hpp" />
+    <ClInclude Include="src\ecs\entities\EntityHandle.hpp" />
+    <ClInclude Include="src\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
-    <ClInclude Include="src\core\math\Vec2.hpp" />
+    <ClInclude Include="src\math\Vec2.hpp" />
     <ClInclude Include="src\core\WorldContext.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
   </ItemGroup>

@@ -1,5 +1,8 @@
 #include "Game.hpp"
 
+#include "..\ecs\entities\EntityManager.hpp"
+#include "..\platform\SDLManager.hpp"
+
 void Game::initialize() {
 	sdlManager_.initialize("Asteroids", 1280, 720);
 }
@@ -8,6 +11,9 @@ void Game::run() {
 
 	// set running flag
 	running_ = true;
+
+	// create managers
+
 
 	while(running_){
 		if (!sdlManager_.pollEvents(frameEvents_)) break;

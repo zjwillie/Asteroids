@@ -24,7 +24,13 @@
     <ClCompile Include="src\core\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\ecs\entities\EntityManager.cpp">
+    <ClCompile Include="src\ecs\entities\EntityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\WorldContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ecs\entities\EntityHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,25 +41,25 @@
     <ClInclude Include="src\core\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\entities\EntityHandle.hpp">
+    <ClInclude Include="src\ecs\entities\EntityHandle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\entities\EntityManager.hpp">
+    <ClInclude Include="src\ecs\entities\EntityManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\components\ComponentStore.hpp">
+    <ClInclude Include="src\ecs\components\ComponentStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\math\Vec2.hpp">
+    <ClInclude Include="src\math\Vec2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\components\Transform.hpp">
+    <ClInclude Include="src\ecs\components\Transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\components\Sprite.hpp">
+    <ClInclude Include="src\ecs\components\Sprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ecs\components\Velocity.hpp">
+    <ClInclude Include="src\ecs\components\Velocity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\core\WorldContext.hpp">

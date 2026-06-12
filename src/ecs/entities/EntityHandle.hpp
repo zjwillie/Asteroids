@@ -9,7 +9,3 @@ struct EntityHandle {
 
 	bool operator==(const EntityHandle&) const = default;
 };
-
-bool EntityHandle::isValid() const {
-	return generation != 0;
-}
