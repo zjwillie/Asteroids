@@ -151,12 +151,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\ecs\entities\EntityManager.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\ecs\entities\EntityHandle.hpp" />
+    <ClInclude Include="src\core\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
   </ItemGroup>
