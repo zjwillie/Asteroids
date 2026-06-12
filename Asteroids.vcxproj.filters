@@ -44,5 +44,17 @@
     <ClInclude Include="src\core\ecs\components\ComponentStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\math\Vec2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ecs\components\Transform.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ecs\components\Sprite.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ecs\components\Velocity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

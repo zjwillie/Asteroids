@@ -158,9 +158,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\ecs\components\ComponentStore.hpp" />
+    <ClInclude Include="src\core\ecs\components\Sprite.hpp" />
+    <ClInclude Include="src\core\ecs\components\Transform.hpp" />
+    <ClInclude Include="src\core\ecs\components\Velocity.hpp" />
     <ClInclude Include="src\core\ecs\entities\EntityHandle.hpp" />
     <ClInclude Include="src\core\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
+    <ClInclude Include="src\core\math\Vec2.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

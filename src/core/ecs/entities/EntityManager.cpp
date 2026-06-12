@@ -37,3 +37,15 @@ bool EntityManager::isAlive(const EntityHandle& handle) {
 	// probably should log something when this fails... maybe not here
 	return true;
 }
+
+ComponentStore<Transform>& EntityManager::getTransforms() {
+	return transforms_;
+}
+
+ComponentStore<Velocity>& EntityManager::getVelocities() {
+	return velocities_;
+}
+
+ComponentStore<Sprite>& EntityManager::getSprites() {
+	return sprites_;
+}
