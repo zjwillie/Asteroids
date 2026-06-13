@@ -158,6 +158,7 @@
     <ClCompile Include="src\ecs\systems\MovementSystem.cpp" />
     <ClCompile Include="src\ecs\systems\RenderSystem.cpp" />
     <ClCompile Include="src\ecs\systems\SystemManager.cpp" />
+    <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
   </ItemGroup>
@@ -173,6 +174,8 @@
     <ClInclude Include="src\ecs\systems\RenderSystem.hpp" />
     <ClInclude Include="src\ecs\systems\System.hpp" />
     <ClInclude Include="src\ecs\systems\SystemManager.hpp" />
+    <ClInclude Include="src\input\InputManager.hpp" />
+    <ClInclude Include="src\input\KeyState.hpp" />
     <ClInclude Include="src\math\Vec2.hpp" />
     <ClInclude Include="src\core\WorldContext.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
