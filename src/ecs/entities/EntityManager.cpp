@@ -18,6 +18,18 @@ EntityHandle EntityManager::create() {
 	return newEntity;
 }
 
+EntityHandle EntityManager::getHandle(uint32_t index) const {
+	// check index is in bounds first
+	EntityHandle entityHandle{ 0, 0 };
+	if (generations_.size() <= index) {
+		// log, oh shit why would you do this? this index is dead Jim
+		return entityHandle;
+	}
+	entityHandle.generation = generations_[index];
+	entityHandle.index = index;
+	return entityHandle;
+}
+
 void EntityManager::destroy(const EntityHandle& handle) {
 	if (isAlive(handle)) {
 		// it's dead Jim, we need a new gen

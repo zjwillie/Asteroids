@@ -13,6 +13,7 @@ public:
 	EntityHandle create();
 	void destroy(const EntityHandle& handle);
 	bool isAlive(const EntityHandle& handle);
+	EntityHandle getHandle(uint32_t index) const;
 
 	ComponentStore<Transform>& getTransforms();
 	ComponentStore<Velocity>& getVelocities();
