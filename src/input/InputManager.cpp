@@ -1,3 +1,10 @@
+// FUTURE: pressDurations ring buffer (parallel to pressTimestamps) could be added here.
+// Fill on KEY_UP: pressDurations[totalPressCount % 16] = lastReleaseTime - lastPressTime
+// This would enable combo/sequence detection in a higher-level InputInterpreter that
+// reads patterns like: held A -> pressed B -> held A again, by walking the timestamp
+// and duration history across multiple keys.
+// InputManager stays pure data — interpretation lives in a separate system.
+
 #include "InputManager.hpp"
 
 float InputManager::getLastPressDuration(SDL_Scancode key) const {
@@ -19,6 +26,9 @@ void InputManager::processEvent(const SDL_Event& event) {
 		SDL_Scancode key = event.key.scancode;
 		float pressTime = SDL_GetTicks() / 1000.0f;
 
+		// KEY_DOWN block, after updating state:
+		SDL_Log("KEY DOWN: %d", key);
+
 		// update the key
 		keyboardState_[key].wasPressed = true;
 		keyboardState_[key].isDown = true;
@@ -37,6 +47,9 @@ void InputManager::processEvent(const SDL_Event& event) {
 		// convienice variable
 		SDL_Scancode key = event.key.scancode;
 		float pressTime = SDL_GetTicks() / 1000.0f;
+
+		// KEY_UP block, after updating state:
+		SDL_Log("KEY UP: %d", key);
 
 		// update state
 		keyboardState_[key].wasReleased = true;

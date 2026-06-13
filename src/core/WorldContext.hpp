@@ -5,6 +5,7 @@
 #include "../ecs/entities/EntityManager.hpp"
 #include "../platform/SDLManager.hpp"
 #include "../ecs/systems/SystemManager.hpp"
+#include "../input/InputManager.hpp"
 
 class WorldContext {
 public:
@@ -21,10 +22,15 @@ public:
 		systemManagerPtr_ = systemManager;
 	}
 
+	void setInputManager(InputManager* inputManager) {
+		inputManagerPtr_ = inputManager;
+	}
+
 	// asserting reference acessor for each
 	EntityManager& getEntityManager();
 	SDLManager& getSDLManager();
 	SystemManager& getSystemManager();
+	InputManager& getInputManager();
 
 	// isValid() to check nothing is null
 	bool isValid() const;
@@ -34,4 +40,5 @@ private:
 	EntityManager* entityManagerPtr_ = nullptr;
 	SDLManager* SDLManagerPtr_ = nullptr;
 	SystemManager* systemManagerPtr_ = nullptr;
+	InputManager* inputManagerPtr_ = nullptr;
 };

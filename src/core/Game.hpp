@@ -5,6 +5,7 @@
 #include "../platform/SDLManager.hpp"
 #include "../ecs/entities/EntityManager.hpp"
 #include "../ecs/systems/SystemManager.hpp"
+#include "../input/InputManager.hpp"
 #include "WorldContext.hpp"
 
 class Game {
@@ -19,6 +20,7 @@ private:
 	SDLManager SDLManager_;
 	EntityManager entityManager_;
 	SystemManager systemManager_;
+	InputManager inputManager_;
 
 	bool running_ = true;
 

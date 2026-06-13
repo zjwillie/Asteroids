@@ -10,6 +10,7 @@ void Game::initialize() {
 	worldContext_.setEntityManager(&entityManager_);
 	worldContext_.setSDLManager(&SDLManager_);
 	worldContext_.setSystemManager(&systemManager_);
+	worldContext_.setInputManager(&inputManager_);
 
 	if (!worldContext_.isValid()) {
 		// fuck me maybe we should have setting running_ = true here after all, nice way to bail yeah?
@@ -52,12 +53,15 @@ void Game::run() {
 	if (!running_) return;
 
 	while(running_){
+		inputManager_.beginFrame();
+
 		if (!SDLManager_.pollEvents(frameEvents_)) break;
 
 		for (const SDL_Event& event : frameEvents_) {
 			if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_ESCAPE) {
 				running_ = false;
 			}
+			inputManager_.processEvent(event);
 		}
 
 		// check your watches

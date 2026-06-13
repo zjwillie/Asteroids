@@ -3,7 +3,8 @@
 bool WorldContext::isValid() const {
 	return entityManagerPtr_ != nullptr 
 		&& SDLManagerPtr_ != nullptr
-		&& systemManagerPtr_ != nullptr;
+		&& systemManagerPtr_ != nullptr
+		&& inputManagerPtr_ != nullptr;
 }
 
 EntityManager& WorldContext::getEntityManager() {
@@ -19,4 +20,9 @@ SDLManager& WorldContext::getSDLManager() {
 SystemManager& WorldContext::getSystemManager() {
 	assert(systemManagerPtr_ && "SystemManger not initialized!");
 	return *systemManagerPtr_;
+}
+
+InputManager& WorldContext::getInputManager() {
+	assert(inputManagerPtr_ && "InputManager not initialized!");
+	return *inputManagerPtr_;
 }
