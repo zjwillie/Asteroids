@@ -21,6 +21,31 @@ void Game::initialize() {
 
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
+
+	EntityHandle e1 = entityManager_.create();
+	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });
+	entityManager_.getVelocities().add(e1, Velocity{ Vec2{ 40.0f, 20.0f }, 0.0f });
+	entityManager_.getSprites().add(e1, Sprite{ 10, 10, 255, 100, 100 });
+
+	EntityHandle e2 = entityManager_.create();
+	entityManager_.getTransforms().add(e2, Transform{ Vec2{ 80.0f, 60.0f }, 0.0f });
+	entityManager_.getVelocities().add(e2, Velocity{ Vec2{ -30.0f, 50.0f }, 0.0f });
+	entityManager_.getSprites().add(e2, Sprite{ 10, 10, 100, 255, 100 });
+
+	EntityHandle e3 = entityManager_.create();
+	entityManager_.getTransforms().add(e3, Transform{ Vec2{ 160.0f, 90.0f }, 0.0f });
+	entityManager_.getVelocities().add(e3, Velocity{ Vec2{ 60.0f, -40.0f }, 0.0f });
+	entityManager_.getSprites().add(e3, Sprite{ 10, 10, 100, 100, 255 });
+
+	EntityHandle e4 = entityManager_.create();
+	entityManager_.getTransforms().add(e4, Transform{ Vec2{ 240.0f, 120.0f }, 0.0f });
+	entityManager_.getVelocities().add(e4, Velocity{ Vec2{ -50.0f, -30.0f }, 0.0f });
+	entityManager_.getSprites().add(e4, Sprite{ 10, 10, 255, 255, 100 });
+
+	EntityHandle e5 = entityManager_.create();
+	entityManager_.getTransforms().add(e5, Transform{ Vec2{ 60.0f, 150.0f }, 0.0f });
+	entityManager_.getVelocities().add(e5, Velocity{ Vec2{ 70.0f, 60.0f }, 0.0f });
+	entityManager_.getSprites().add(e5, Sprite{ 10, 10, 255, 100, 255 });
 }
 
 void Game::run() {
@@ -38,10 +63,6 @@ void Game::run() {
 		// check your watches
 		float deltaTime = SDLManager_.getDeltaTime();
 
-		// move the rect, keep for now so we can watch it along side the rest
-		rectX_ += rectSpeed_ * deltaTime;
-		if (rectX_ > 320.0f) rectX_ = 0.0f;
-
 		// update
 		systemManager_.update(worldContext_, deltaTime);
 
@@ -49,11 +70,7 @@ void Game::run() {
 		SDLManager_.clear(20, 20, 30);
 
 		// draw
-		SDL_FRect rect = { rectX_, rectY_, 10.0f, 10.0f };
 		systemManager_.render(worldContext_);
-
-		SDL_SetRenderDrawColor(SDLManager_.getRenderer(), 255, 255, 255, 255);
-		SDL_RenderFillRect(SDLManager_.getRenderer(), &rect);
 
 		SDLManager_.present();
 	}

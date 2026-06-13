@@ -156,6 +156,7 @@
     <ClCompile Include="src\ecs\entities\EntityManager.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\ecs\systems\MovementSystem.cpp" />
+    <ClCompile Include="src\ecs\systems\RenderSystem.cpp" />
     <ClCompile Include="src\ecs\systems\SystemManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />

@@ -36,7 +36,7 @@ const std::unordered_map<uint32_t, T>& ComponentStore<T>::getAll() const {
 template <typename T>
 void ComponentStore<T>::add(const EntityHandle& entity, T component) {
 	if (entity.isValid()) {
-		data_.emplace({entity.index, component});
+		data_.insert({entity.index, component});
 	}
 	else {
 		// log entity is not valid!
