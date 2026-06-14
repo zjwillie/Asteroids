@@ -40,14 +40,14 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 				// SDL_Scancode rotateLeft = SDL_SCANCODE_LEFT;
 				if (worldContext.getInputManager().isDown(shipBindings_.rotateLeft)) {
 					// KEY_DOWN block, after updating state:
-					SDL_Log("WE HAVE L THRUST!");
+					//SDL_Log("WE HAVE L THRUST!");
 					velocity->angularVelocity = -turnSpeed_;
 				}
 
 				// SDL_Scancode rotateRight = SDL_SCANCODE_RIGHT;
 				if (worldContext.getInputManager().isDown(shipBindings_.rotateRight)) {
 					// KEY_DOWN block, after updating state:
-					SDL_Log("WE HAVE R THRUST!");
+					//SDL_Log("WE HAVE R THRUST!");
 					velocity->angularVelocity = turnSpeed_;
 				}
 
@@ -59,7 +59,7 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 				// SDL_Scancode fire = SDL_SCANCODE_SPACE;
 				if (worldContext.getInputManager().isDown(shipBindings_.fire)) {
 					// KEY_DOWN block, after updating state:
-					SDL_Log("WE HAVE BLASTERS! Pew pew");
+					//SDL_Log("WE HAVE BLASTERS! Pew pew");
 				}
 
 				// Drag every frame

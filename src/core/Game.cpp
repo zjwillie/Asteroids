@@ -3,6 +3,7 @@
 #include "../ecs/systems/MovementSystem.hpp"
 #include "../ecs/systems/RenderSystem.hpp"
 #include "../ecs/systems/ShipControlSystem.hpp"
+#include "../ecs/systems/WarpSystem.hpp"
 
 #include <memory>
 
@@ -21,9 +22,11 @@ void Game::initialize() {
 		return;
 	}
 
+	// set systems, this will be the order they are called so be careful
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
+	systemManager_.registerSystem(std::make_unique<WarpSystem>());
 
 	EntityHandle e1 = entityManager_.create();
 	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });

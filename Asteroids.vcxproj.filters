@@ -48,6 +48,9 @@
     <ClCompile Include="src\ecs\systems\ShipControlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ecs\systems\WarpSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\platform\SDLManager.hpp">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ecs\components\PlayerControlled.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\systems\WarpSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
