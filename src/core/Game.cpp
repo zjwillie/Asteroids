@@ -2,6 +2,7 @@
 
 #include "../ecs/systems/MovementSystem.hpp"
 #include "../ecs/systems/RenderSystem.hpp"
+#include "../ecs/systems/ShipControlSystem.hpp"
 
 #include <memory>
 
@@ -22,11 +23,14 @@ void Game::initialize() {
 
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
+	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
+
 
 	EntityHandle e1 = entityManager_.create();
 	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });
 	entityManager_.getVelocities().add(e1, Velocity{ Vec2{ 40.0f, 20.0f }, 0.0f });
 	entityManager_.getSprites().add(e1, Sprite{ 10, 10, 255, 100, 100 });
+	entityManager_.getPlayerControlled().add(e1, PlayerControlled{});
 
 	EntityHandle e2 = entityManager_.create();
 	entityManager_.getTransforms().add(e2, Transform{ Vec2{ 80.0f, 60.0f }, 0.0f });

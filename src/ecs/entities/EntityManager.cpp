@@ -61,3 +61,7 @@ ComponentStore<Velocity>& EntityManager::getVelocities() {
 ComponentStore<Sprite>& EntityManager::getSprites() {
 	return sprites_;
 }
+
+ComponentStore<PlayerControlled>& EntityManager::getPlayerControlled() {
+	return playerControlled_;
+}
