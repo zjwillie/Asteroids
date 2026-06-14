@@ -14,6 +14,7 @@ void MovementSystem::update(WorldContext& worldContext, float deltaTime) {
 		// grab the transfrom.x and y and add the velocities to them fin
 		EntityHandle handle = worldContext.getEntityManager().getHandle(index);
 		Transform* transform = transforms.get(handle);
+
 		if (transform) {
 			transform->position += velocity.linearVelocity * deltaTime;
 			transform->rotation += velocity.angularVelocity * deltaTime;

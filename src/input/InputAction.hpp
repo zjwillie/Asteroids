@@ -16,9 +16,10 @@ enum class InputAction : uint8_t {
 };
 
 // Temporary hard code binding
+// Can assign multiple keys with differnt words thrustAlt if we wanted two
 struct ShipBindings {
-    SDL_Scancode thrust = SDL_SCANCODE_UP;
-    SDL_Scancode rotateLeft = SDL_SCANCODE_LEFT;
-    SDL_Scancode rotateRight = SDL_SCANCODE_RIGHT;
+    SDL_Scancode thrust = SDL_SCANCODE_W;
+    SDL_Scancode rotateLeft = SDL_SCANCODE_A;
+    SDL_Scancode rotateRight = SDL_SCANCODE_D;
     SDL_Scancode fire = SDL_SCANCODE_SPACE;
 };

@@ -29,6 +29,18 @@ struct Vec2 {
 		return *this;
 	}
 
+	Vec2& operator*=(const Vec2& other) {
+		x *= other.x;
+		y *= other.y;
+		return *this;
+	}
+
+	Vec2& operator*=(float scalar) {
+		x *= scalar;
+		y *= scalar;
+		return *this;
+	}
+
 	float length() const {
 		return sqrt(x * x + y * y);
 	}

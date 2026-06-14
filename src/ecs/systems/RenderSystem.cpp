@@ -21,6 +21,15 @@ void RenderSystem::render(WorldContext& worldContext) {
 			};
 			SDL_SetRenderDrawColor(worldContext.getSDLManager().getRenderer(), sprite.red, sprite.green, sprite.blue, 255);
 			SDL_RenderFillRect(worldContext.getSDLManager().getRenderer(), &rect);
+
+			Vec2 facing = { std::cos(transform->rotation), std::sin(transform->rotation) };
+			SDL_FRect nose = {
+				transform->position.x + facing.x * (sprite.width / 2.0f),
+				transform->position.y + facing.y * (sprite.height / 2.0f),
+				3.0f, 3.0f
+			};
+			SDL_SetRenderDrawColor(worldContext.getSDLManager().getRenderer(), 255, 255, 0, 255); // yellow dot
+			SDL_RenderFillRect(worldContext.getSDLManager().getRenderer(), &nose);
 		}
 	}
 }

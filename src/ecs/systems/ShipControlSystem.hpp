@@ -14,8 +14,8 @@ public:
 
 private:
 	ShipBindings shipBindings_;
-	float turnSpeed_{ 0.0f };
-	float thrustForce_{ 0.0f };
-	float maxSpeed_{ 10.0f };
-	float drag_{ 0.01f };
+	float turnSpeed_{ 5.0f };
+	float thrustForce_{ 150.0f };
+	float maxSpeed_{ 200.0f };
+	float drag_{ 4.0f };
 };
