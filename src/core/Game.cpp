@@ -4,6 +4,8 @@
 #include "../ecs/systems/RenderSystem.hpp"
 #include "../ecs/systems/ShipControlSystem.hpp"
 #include "../ecs/systems/WarpSystem.hpp"
+#include "../ecs/systems/LifetimeSystem.hpp"
+#include "../ecs/systems/CleanupSystem.hpp"
 
 #include <memory>
 
@@ -25,8 +27,10 @@ void Game::initialize() {
 	// set systems, this will be the order they are called so be careful
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
-	systemManager_.registerSystem(std::make_unique<RenderSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());
+	systemManager_.registerSystem(std::make_unique<LifetimeSystem>());
+	systemManager_.registerSystem(std::make_unique<CleanupSystem>());
+	systemManager_.registerSystem(std::make_unique<RenderSystem>());
 
 	EntityHandle e1 = entityManager_.create();
 	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });
@@ -36,8 +40,9 @@ void Game::initialize() {
 
 	EntityHandle e2 = entityManager_.create();
 	entityManager_.getTransforms().add(e2, Transform{ Vec2{ 80.0f, 60.0f }, 0.0f });
-	entityManager_.getVelocities().add(e2, Velocity{ Vec2{ -30.0f, 50.0f }, 0.0f });
+	entityManager_.getVelocities().add(e2, Velocity{ Vec2{ -3.0f, 5.0f }, 0.0f });
 	entityManager_.getSprites().add(e2, Sprite{ 10, 10, 100, 255, 100 });
+	entityManager_.getLifetimes().add(e2, Lifetime{ 10.0, false });
 
 	EntityHandle e3 = entityManager_.create();
 	entityManager_.getTransforms().add(e3, Transform{ Vec2{ 160.0f, 90.0f }, 0.0f });

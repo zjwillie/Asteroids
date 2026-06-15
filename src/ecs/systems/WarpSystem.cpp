@@ -11,17 +11,15 @@ void WarpSystem::update(WorldContext& worldContext, float) {
 
 		// check if entity is in the window bounds + margin_
 		if (transform.position.x > playAreaWidth_ + margin_) {
-			// snap them to 0 - margin_
-			transform.position.x = 0 - margin_;
+			transform.position.x = -margin_;
 		}
 
 		if (transform.position.x < -margin_) {
-			// snap them to playAreaWidth_ + margin_
 			transform.position.x = playAreaWidth_ + margin_;
 		}
 
 		if (transform.position.y > playAreaHeight_ + margin_) {
-			transform.position.y = 0 - margin_;
+			transform.position.y = -margin_;
 		}
 
 		if (transform.position.y < -margin_) {

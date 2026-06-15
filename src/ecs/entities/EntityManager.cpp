@@ -36,6 +36,13 @@ void EntityManager::destroy(const EntityHandle& handle) {
 		++generations_[handle.index];
 		// put it on the pile
 		freeList_.push_back(handle.index);
+
+		// remove all components
+		transforms_.remove(handle);
+		velocities_.remove(handle);
+		sprites_.remove(handle);
+		playerControlled_.remove(handle);
+		lifetimes_.remove(handle);
 	}
 	// might need to throw an error or seomthing here if nothing is destoryed, or a warn
 }
@@ -64,4 +71,8 @@ ComponentStore<Sprite>& EntityManager::getSprites() {
 
 ComponentStore<PlayerControlled>& EntityManager::getPlayerControlled() {
 	return playerControlled_;
+}
+
+ComponentStore<Lifetime>& EntityManager::getLifetimes() {
+	return lifetimes_;
 }

@@ -8,6 +8,7 @@
 #include "../components/Velocity.hpp"
 #include "../components/Sprite.hpp"
 #include "../components/PlayerControlled.hpp"
+#include "../components/Lifetime.hpp"
 
 class EntityManager {
 public:
@@ -20,6 +21,7 @@ public:
 	ComponentStore<Velocity>& getVelocities();
 	ComponentStore<Sprite>& getSprites();
 	ComponentStore<PlayerControlled>& getPlayerControlled();
+	ComponentStore<Lifetime>& getLifetimes();
 
 private:
 	std::vector<uint32_t> generations_;
@@ -29,4 +31,5 @@ private:
 	ComponentStore<Velocity> velocities_;
 	ComponentStore<Sprite> sprites_;
 	ComponentStore<PlayerControlled> playerControlled_;
+	ComponentStore<Lifetime> lifetimes_;
 };

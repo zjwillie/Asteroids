@@ -155,6 +155,8 @@
     <ClCompile Include="src\ecs\entities\EntityHandle.cpp" />
     <ClCompile Include="src\ecs\entities\EntityManager.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\ecs\systems\CleanupSystem.cpp" />
+    <ClCompile Include="src\ecs\systems\LifetimeSystem.cpp" />
     <ClCompile Include="src\ecs\systems\MovementSystem.cpp" />
     <ClCompile Include="src\ecs\systems\RenderSystem.cpp" />
     <ClCompile Include="src\ecs\systems\ShipControlSystem.cpp" />
@@ -166,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ecs\components\ComponentStore.hpp" />
+    <ClInclude Include="src\ecs\components\LifeTime.hpp" />
     <ClInclude Include="src\ecs\components\PlayerControlled.hpp" />
     <ClInclude Include="src\ecs\components\Sprite.hpp" />
     <ClInclude Include="src\ecs\components\Transform.hpp" />
@@ -173,6 +176,8 @@
     <ClInclude Include="src\ecs\entities\EntityHandle.hpp" />
     <ClInclude Include="src\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
+    <ClInclude Include="src\ecs\systems\CleanupSystem.hpp" />
+    <ClInclude Include="src\ecs\systems\LifetimeSystem.hpp" />
     <ClInclude Include="src\ecs\systems\MovementSystem.hpp" />
     <ClInclude Include="src\ecs\systems\RenderSystem.hpp" />
     <ClInclude Include="src\ecs\systems\ShipControlSystem.hpp" />
