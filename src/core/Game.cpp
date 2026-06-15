@@ -15,6 +15,7 @@ void Game::initialize() {
 	worldContext_.setSDLManager(&SDLManager_);
 	worldContext_.setSystemManager(&systemManager_);
 	worldContext_.setInputManager(&inputManager_);
+	worldContext_.setEventManager(&eventManager_);
 
 	if (!worldContext_.isValid()) {
 		// fuck me maybe we should have setting running_ = true here after all, nice way to bail yeah?

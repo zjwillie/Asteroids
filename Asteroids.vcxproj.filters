@@ -57,6 +57,9 @@
     <ClCompile Include="src\ecs\systems\CleanupSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\events\EventManger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\platform\SDLManager.hpp">
@@ -126,6 +129,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ecs\systems\CleanupSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\events\FireRequestedEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\events\EventManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

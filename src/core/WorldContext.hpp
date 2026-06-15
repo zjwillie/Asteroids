@@ -6,6 +6,7 @@
 #include "../platform/SDLManager.hpp"
 #include "../ecs/systems/SystemManager.hpp"
 #include "../input/InputManager.hpp"
+#include "../events/EventManager.hpp"
 
 class WorldContext {
 public:
@@ -26,11 +27,16 @@ public:
 		inputManagerPtr_ = inputManager;
 	}
 
+	void setEventManager(EventManager* eventManager) {
+		eventManagerPtr_ = eventManager;
+	}
+
 	// asserting reference acessor for each
 	EntityManager& getEntityManager();
 	SDLManager& getSDLManager();
 	SystemManager& getSystemManager();
 	InputManager& getInputManager();
+	EventManager& getEventManager();
 
 	// isValid() to check nothing is null
 	bool isValid() const;
@@ -41,4 +47,5 @@ private:
 	SDLManager* SDLManagerPtr_ = nullptr;
 	SystemManager* systemManagerPtr_ = nullptr;
 	InputManager* inputManagerPtr_ = nullptr;
+	EventManager* eventManagerPtr_ = nullptr;
 };

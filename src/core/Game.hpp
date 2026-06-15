@@ -6,6 +6,8 @@
 #include "../ecs/entities/EntityManager.hpp"
 #include "../ecs/systems/SystemManager.hpp"
 #include "../input/InputManager.hpp"
+#include "../events/EventManager.hpp"
+
 #include "WorldContext.hpp"
 
 class Game {
@@ -21,6 +23,7 @@ private:
 	EntityManager entityManager_;
 	SystemManager systemManager_;
 	InputManager inputManager_;
+	EventManager eventManager_;
 
 	bool running_ = true;
 

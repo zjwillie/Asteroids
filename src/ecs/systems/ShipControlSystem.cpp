@@ -60,6 +60,13 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 				if (worldContext.getInputManager().isDown(shipBindings_.fire)) {
 					// KEY_DOWN block, after updating state:
 					//SDL_Log("WE HAVE BLASTERS! Pew pew");
+					FireRequestedEvent fireRequest{};
+					Vec2 facing = { std::cos(transform->rotation), std::sin(transform->rotation) };
+					fireRequest.position = transform->position + facing * 8.0f; // nose offset
+					fireRequest.direction = transform->rotation;
+					fireRequest.speedDifferential = velocity->linearVelocity.length();
+
+					worldContext.getEventManager().emit(fireRequest);
 				}
 
 				// Drag every frame
