@@ -10,6 +10,7 @@
 #include "../components/PlayerControlled.hpp"
 #include "../components/Lifetime.hpp"
 #include "../components/Bullet.hpp"
+#include "../components/Name.hpp"
 
 class EntityManager {
 public:
@@ -24,6 +25,7 @@ public:
 	ComponentStore<PlayerControlled>& getPlayerControlled();
 	ComponentStore<Lifetime>& getLifetimes();
 	ComponentStore<Bullet>& getBullets();
+	ComponentStore<Name>& getNames();
 
 private:
 	std::vector<uint32_t> generations_;
@@ -35,4 +37,5 @@ private:
 	ComponentStore<PlayerControlled> playerControlled_;
 	ComponentStore<Lifetime> lifetimes_;
 	ComponentStore<Bullet> bullets_;
+	ComponentStore<Name> names_;
 };

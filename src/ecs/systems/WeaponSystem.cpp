@@ -15,6 +15,7 @@ void WeaponSystem::update(WorldContext& worldContext, float) {
         SDL_Log("[%.3f] Bullet spawned", SDL_GetTicks() / 1000.0f);
         SDL_Log("[%.3f] Bullet spawned at %.1f, %.1f", SDL_GetTicks() / 1000.0f, fireRequest.position.x, fireRequest.position.y);
         EntityHandle bullet = worldContext.getEntityManager().create();
+        worldContext.getEntityManager().getNames().add(bullet, Name{ "Bullet" });
         worldContext.getEntityManager().getTransforms().add(bullet, Transform{ fireRequest.position, fireRequest.direction });
         worldContext.getEntityManager().getVelocities().add(bullet, Velocity{ bulletVelocity, 0.0f });
         worldContext.getEntityManager().getSprites().add(bullet, Sprite{ 3, 3, 255, 255, 0 });

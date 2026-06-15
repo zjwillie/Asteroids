@@ -172,6 +172,7 @@
     <ClInclude Include="src\ecs\components\Bullet.hpp" />
     <ClInclude Include="src\ecs\components\ComponentStore.hpp" />
     <ClInclude Include="src\ecs\components\LifeTime.hpp" />
+    <ClInclude Include="src\ecs\components\Name.hpp" />
     <ClInclude Include="src\ecs\components\PlayerControlled.hpp" />
     <ClInclude Include="src\ecs\components\Sprite.hpp" />
     <ClInclude Include="src\ecs\components\Transform.hpp" />

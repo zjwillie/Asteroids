@@ -45,6 +45,7 @@ void EntityManager::destroy(const EntityHandle& handle) {
 		playerControlled_.remove(handle);
 		lifetimes_.remove(handle);
 		bullets_.remove(handle);
+		names_.remove(handle);
 	}
 	// might need to throw an error or seomthing here if nothing is destoryed, or a warn
 }
@@ -81,4 +82,8 @@ ComponentStore<Lifetime>& EntityManager::getLifetimes() {
 
 ComponentStore<Bullet>& EntityManager::getBullets() {
 	return bullets_;
+}
+
+ComponentStore<Name>& EntityManager::getNames() {
+	return names_;
 }
