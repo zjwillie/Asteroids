@@ -9,6 +9,7 @@
 #include "../components/Sprite.hpp"
 #include "../components/PlayerControlled.hpp"
 #include "../components/Lifetime.hpp"
+#include "../components/Bullet.hpp"
 
 class EntityManager {
 public:
@@ -22,6 +23,7 @@ public:
 	ComponentStore<Sprite>& getSprites();
 	ComponentStore<PlayerControlled>& getPlayerControlled();
 	ComponentStore<Lifetime>& getLifetimes();
+	ComponentStore<Bullet>& getBullets();
 
 private:
 	std::vector<uint32_t> generations_;
@@ -32,4 +34,5 @@ private:
 	ComponentStore<Sprite> sprites_;
 	ComponentStore<PlayerControlled> playerControlled_;
 	ComponentStore<Lifetime> lifetimes_;
+	ComponentStore<Bullet> bullets_;
 };

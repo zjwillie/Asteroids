@@ -162,12 +162,14 @@
     <ClCompile Include="src\ecs\systems\ShipControlSystem.cpp" />
     <ClCompile Include="src\ecs\systems\SystemManager.cpp" />
     <ClCompile Include="src\ecs\systems\WarpSystem.cpp" />
+    <ClCompile Include="src\ecs\systems\WeaponSystem.cpp" />
     <ClCompile Include="src\events\EventManger.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ecs\components\Bullet.hpp" />
     <ClInclude Include="src\ecs\components\ComponentStore.hpp" />
     <ClInclude Include="src\ecs\components\LifeTime.hpp" />
     <ClInclude Include="src\ecs\components\PlayerControlled.hpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="src\ecs\systems\System.hpp" />
     <ClInclude Include="src\ecs\systems\SystemManager.hpp" />
     <ClInclude Include="src\ecs\systems\WarpSystem.hpp" />
+    <ClInclude Include="src\ecs\systems\WeaponSystem.hpp" />
     <ClInclude Include="src\events\EventManager.hpp" />
     <ClInclude Include="src\events\FireRequestedEvent.hpp" />
     <ClInclude Include="src\input\InputAction.hpp" />

@@ -76,3 +76,7 @@ ComponentStore<PlayerControlled>& EntityManager::getPlayerControlled() {
 ComponentStore<Lifetime>& EntityManager::getLifetimes() {
 	return lifetimes_;
 }
+
+ComponentStore<Bullet>& EntityManager::getBullets() {
+	return bullets_;
+}
