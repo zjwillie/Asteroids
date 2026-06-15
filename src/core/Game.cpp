@@ -6,6 +6,7 @@
 #include "../ecs/systems/WarpSystem.hpp"
 #include "../ecs/systems/LifetimeSystem.hpp"
 #include "../ecs/systems/CleanupSystem.hpp"
+#include "../ecs/systems/WeaponSystem.hpp"
 
 #include <memory>
 
@@ -30,6 +31,7 @@ void Game::initialize() {
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());
 	systemManager_.registerSystem(std::make_unique<LifetimeSystem>());
+	systemManager_.registerSystem(std::make_unique<WeaponSystem>());
 	systemManager_.registerSystem(std::make_unique<CleanupSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
 
@@ -89,6 +91,8 @@ void Game::run() {
 		systemManager_.render(worldContext_);
 
 		SDLManager_.present();
+
+		eventManager_.clearFrame();
 	}
 }
 

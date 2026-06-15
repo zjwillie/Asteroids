@@ -57,7 +57,7 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 
 
 				// SDL_Scancode fire = SDL_SCANCODE_SPACE;
-				if (worldContext.getInputManager().isDown(shipBindings_.fire)) {
+				if (worldContext.getInputManager().wasPressed(shipBindings_.fire)) {
 					// KEY_DOWN block, after updating state:
 					//SDL_Log("WE HAVE BLASTERS! Pew pew");
 					FireRequestedEvent fireRequest{};
@@ -66,6 +66,7 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 					fireRequest.direction = transform->rotation;
 					fireRequest.speedDifferential = velocity->linearVelocity.length();
 
+					SDL_Log("[%.3f] Fire emitted", SDL_GetTicks() / 1000.0f);
 					worldContext.getEventManager().emit(fireRequest);
 				}
 

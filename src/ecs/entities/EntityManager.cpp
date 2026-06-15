@@ -6,6 +6,7 @@ EntityHandle EntityManager::create() {
 	if (!freeList_.empty()) {
 		// pop off the top and use that one
 		newEntity.index = freeList_.back();
+		freeList_.pop_back();
 		newEntity.generation = generations_[newEntity.index];
 	}
 	else {
@@ -43,6 +44,7 @@ void EntityManager::destroy(const EntityHandle& handle) {
 		sprites_.remove(handle);
 		playerControlled_.remove(handle);
 		lifetimes_.remove(handle);
+		bullets_.remove(handle);
 	}
 	// might need to throw an error or seomthing here if nothing is destoryed, or a warn
 }

@@ -24,24 +24,27 @@ void InputManager::processEvent(const SDL_Event& event) {
 	if (event.type == SDL_EVENT_KEY_DOWN) {
 		// store the key for convience below
 		SDL_Scancode key = event.key.scancode;
-		float pressTime = SDL_GetTicks() / 1000.0f;
-
-		// KEY_DOWN block, after updating state:
-		SDL_Log("KEY DOWN: %d", key);
-
-		// update the key
-		keyboardState_[key].wasPressed = true;
-		keyboardState_[key].isDown = true;
-
-		// add the key to the array to keep track
-		keyboardState_[key].pressTimestamps[keyboardState_[key].totalPressCount % 16] = pressTime;
-		++keyboardState_[key].totalPressCount;
-
-		// update the last time pressed
-		keyboardState_[key].lastPressTime = pressTime;
 		
-		// someone touched our clean key...
-		dirtyKeys_.push_back(key);
+		if (!keyboardState_[key].isDown) {
+			float pressTime = SDL_GetTicks() / 1000.0f;
+
+			// KEY_DOWN block, after updating state:
+			SDL_Log("KEY DOWN: %d", key);
+
+			// update the key
+			keyboardState_[key].wasPressed = true;
+			keyboardState_[key].isDown = true;
+
+			// add the key to the array to keep track
+			keyboardState_[key].pressTimestamps[keyboardState_[key].totalPressCount % 16] = pressTime;
+			++keyboardState_[key].totalPressCount;
+
+			// update the last time pressed
+			keyboardState_[key].lastPressTime = pressTime;
+
+			// someone touched our clean key...
+			dirtyKeys_.push_back(key);
+		}
 	}
 	else if (event.type == SDL_EVENT_KEY_UP) {
 		// convienice variable
@@ -86,6 +89,8 @@ bool InputManager::wasReleased(SDL_Scancode key) const {
 
 void InputManager::beginFrame() {
 	for (SDL_Scancode key : dirtyKeys_) {
+		if (key == SDL_SCANCODE_SPACE) SDL_Log("Clearing space wasPressed");
+
 		keyboardState_[key].wasPressed = false;
 		keyboardState_[key].wasReleased = false;
 	}
