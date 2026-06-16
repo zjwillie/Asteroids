@@ -8,9 +8,15 @@
 #include "../ecs/systems/CleanupSystem.hpp"
 #include "../ecs/systems/WeaponSystem.hpp"
 
+#include "../utilities/logger/Logger.hpp"
+
 #include <memory>
 
 void Game::initialize() {
+	Logger::initialize();
+
+	LOG_INFO("GAME", "Logger online");
+
 	SDLManager_.initialize("Asteroids", 1280, 720);
 	worldContext_.setEntityManager(&entityManager_);
 	worldContext_.setSDLManager(&SDLManager_);
@@ -97,5 +103,7 @@ void Game::run() {
 }
 
 void Game::shutdown() {
+	LOG_INFO("Game", "Shutting down");
 	SDLManager_.shutdown();
+	Logger::shutdown();
 }

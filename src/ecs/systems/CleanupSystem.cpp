@@ -3,6 +3,8 @@
 #include "CleanupSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../../utilities/logger/Logger.hpp"
+
 
 void CleanupSystem::update(WorldContext& worldContext, float deltaTime) {
 	auto& lifetimes = worldContext.getEntityManager().getLifetimes();
@@ -17,7 +19,7 @@ void CleanupSystem::update(WorldContext& worldContext, float deltaTime) {
 	}
 
 	for (EntityHandle handle : toDestroy) {
-		SDL_Log("Killing the entity.");
+		LOG_DEBUG("Cleanup", "Destroying entity {} (gen {})", handle.index, handle.generation);
 		worldContext.getEntityManager().destroy(handle);
 	}
 }
