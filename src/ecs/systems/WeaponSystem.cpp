@@ -4,6 +4,7 @@
 
 #include "../../core/WorldContext.hpp"
 #include "../../events/FireRequestedEvent.hpp"
+#include "../../utilities/logger/Logger.hpp"
 
 void WeaponSystem::update(WorldContext& worldContext, float) {
     const auto& fireRequests = worldContext.getEventManager().getFireRequests();
@@ -12,8 +13,7 @@ void WeaponSystem::update(WorldContext& worldContext, float) {
         Vec2 facing = { std::cos(fireRequest.direction), std::sin(fireRequest.direction) };
         Vec2 bulletVelocity = facing * (bulletSpeed_ + fireRequest.speedDifferential);
 
-        SDL_Log("[%.3f] Bullet spawned", SDL_GetTicks() / 1000.0f);
-        SDL_Log("[%.3f] Bullet spawned at %.1f, %.1f", SDL_GetTicks() / 1000.0f, fireRequest.position.x, fireRequest.position.y);
+        LOG_DEBUG("Weapon", "Bullet spawned at {:.1f}, {:.1f}", fireRequest.position.x, fireRequest.position.y);
         EntityHandle bullet = worldContext.getEntityManager().create();
         worldContext.getEntityManager().getNames().add(bullet, Name{ "Bullet" });
         worldContext.getEntityManager().getTransforms().add(bullet, Transform{ fireRequest.position, fireRequest.direction });

@@ -1,6 +1,7 @@
 #include <SDL3/SDL.h>
 
 #include "SDLManager.hpp"
+#include "../utilities/logger/Logger.hpp"
 
 float SDLManager::getDeltaTime() {
     uint64_t currentCounter = SDL_GetPerformanceCounter();
@@ -16,19 +17,19 @@ float SDLManager::getDeltaTime() {
 
 bool SDLManager::initialize(const std::string& title, int width, int height) {
     if (!SDL_Init(SDL_INIT_VIDEO)) {
-        SDL_Log("SDL_Init failed: %s", SDL_GetError());
+        LOG_FATAL("SDL", "SDL_Init failed: {}", SDL_GetError());
         return false;
     }
 
     window_ = SDL_CreateWindow(title.c_str(), width, height, 0);
     if (!window_) {
-        SDL_Log("SDL_CreateWindow failed: %s", SDL_GetError());
+        LOG_FATAL("SDL", "SDL_CreateWindow failed: {}", SDL_GetError());
         return false;
     }
 
     renderer_ = SDL_CreateRenderer(window_, nullptr);
     if (!renderer_) {
-        SDL_Log("SDL_CreateRenderer failed: %s", SDL_GetError());
+        LOG_FATAL("SDL", "SDL_CreateRenderer failed: {}", SDL_GetError());
         return false;
     }
 

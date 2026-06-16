@@ -57,7 +57,7 @@
     <ClCompile Include="src\ecs\systems\CleanupSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\events\EventManger.cpp">
+    <ClCompile Include="src\events\EventManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ecs\systems\WeaponSystem.cpp">

@@ -2,6 +2,7 @@
 
 #include "../../input/InputAction.hpp"
 #include "../../core/WorldContext.hpp"
+#include "../../utilities/logger/Logger.hpp"
 
 void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 	auto& playerControlleds = worldContext.getEntityManager().getPlayerControlled();
@@ -24,14 +25,6 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 
 					Vec2 facing = { std::cos(transform->rotation), std::sin(transform->rotation) };
 
-					/*
-					SDL_Log("WE HAVE F THRUST!");
-					SDL_Log("velocity: %f %f", velocity->linearVelocity.x, velocity->linearVelocity.y);
-					SDL_Log("thrustForce: %f", thrustForce_);
-					SDL_Log("deltaTime: %f", deltaTime);
-					SDL_Log("facing: %f %f", facing.x, facing.y);
-					*/
-
 					velocity->linearVelocity += facing * thrustForce_ * deltaTime;
 				}
 
@@ -40,14 +33,12 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 				// SDL_Scancode rotateLeft = SDL_SCANCODE_LEFT;
 				if (worldContext.getInputManager().isDown(shipBindings_.rotateLeft)) {
 					// KEY_DOWN block, after updating state:
-					//SDL_Log("WE HAVE L THRUST!");
 					velocity->angularVelocity = -turnSpeed_;
 				}
 
 				// SDL_Scancode rotateRight = SDL_SCANCODE_RIGHT;
 				if (worldContext.getInputManager().isDown(shipBindings_.rotateRight)) {
 					// KEY_DOWN block, after updating state:
-					//SDL_Log("WE HAVE R THRUST!");
 					velocity->angularVelocity = turnSpeed_;
 				}
 
@@ -59,14 +50,13 @@ void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 				// SDL_Scancode fire = SDL_SCANCODE_SPACE;
 				if (worldContext.getInputManager().wasPressed(shipBindings_.fire)) {
 					// KEY_DOWN block, after updating state:
-					//SDL_Log("WE HAVE BLASTERS! Pew pew");
 					FireRequestedEvent fireRequest{};
 					Vec2 facing = { std::cos(transform->rotation), std::sin(transform->rotation) };
 					fireRequest.position = transform->position + facing * 8.0f; // nose offset
 					fireRequest.direction = transform->rotation;
 					fireRequest.speedDifferential = velocity->linearVelocity.length();
 
-					SDL_Log("[%.3f] Fire emitted", SDL_GetTicks() / 1000.0f);
+					LOG_DEBUG("Ship", "Fire emitted");
 					worldContext.getEventManager().emit(fireRequest);
 				}
 

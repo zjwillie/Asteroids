@@ -7,6 +7,8 @@
 
 #include "InputManager.hpp"
 
+#include "../utilities/logger/Logger.hpp"
+
 float InputManager::getLastPressDuration(SDL_Scancode key) const {
 	// make sure in bounds
 	if (key >= SDL_SCANCODE_COUNT) return 0.0f;
@@ -29,7 +31,7 @@ void InputManager::processEvent(const SDL_Event& event) {
 			float pressTime = SDL_GetTicks() / 1000.0f;
 
 			// KEY_DOWN block, after updating state:
-			SDL_Log("KEY DOWN: %d", key);
+			LOG_DEBUG("Input", "KEY DOWN: {}", static_cast<int>(key));
 
 			// update the key
 			keyboardState_[key].wasPressed = true;
@@ -52,7 +54,7 @@ void InputManager::processEvent(const SDL_Event& event) {
 		float pressTime = SDL_GetTicks() / 1000.0f;
 
 		// KEY_UP block, after updating state:
-		SDL_Log("KEY UP: %d", key);
+		LOG_DEBUG("Input", "KEY UP: {}", static_cast<int>(key));
 
 		// update state
 		keyboardState_[key].wasReleased = true;
@@ -89,8 +91,6 @@ bool InputManager::wasReleased(SDL_Scancode key) const {
 
 void InputManager::beginFrame() {
 	for (SDL_Scancode key : dirtyKeys_) {
-		if (key == SDL_SCANCODE_SPACE) SDL_Log("Clearing space wasPressed");
-
 		keyboardState_[key].wasPressed = false;
 		keyboardState_[key].wasReleased = false;
 	}

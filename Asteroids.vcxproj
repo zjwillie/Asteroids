@@ -166,7 +166,7 @@
     <ClCompile Include="src\ecs\systems\SystemManager.cpp" />
     <ClCompile Include="src\ecs\systems\WarpSystem.cpp" />
     <ClCompile Include="src\ecs\systems\WeaponSystem.cpp" />
-    <ClCompile Include="src\events\EventManger.cpp" />
+    <ClCompile Include="src\events\EventManager.cpp" />
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
