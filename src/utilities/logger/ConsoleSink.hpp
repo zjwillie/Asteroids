@@ -2,7 +2,10 @@
 
 #include "LogSink.hpp"
 
-class ConsoleSink :public LogSink {
+class ConsoleSink : public LogSink {
 public:
-	void write(const LogEntry& entry) override;
+    ConsoleSink();
+    void write(const LogEntry& entry) override;
+private:
+    void printColorTest();
 };

@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "Game.hpp"
 
 #include "../ecs/systems/MovementSystem.hpp"
@@ -9,11 +11,11 @@
 #include "../ecs/systems/WeaponSystem.hpp"
 
 #include "../utilities/logger/Logger.hpp"
-
-#include <memory>
+#include "../utilities/logger/FileSink.hpp"
 
 void Game::initialize() {
 	Logger::initialize();
+	Logger::addSink(std::make_unique<FileSink>("game.log"));
 
 	LOG_INFO("GAME", "Logger online");
 

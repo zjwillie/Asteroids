@@ -161,7 +161,7 @@
     <ClInclude Include="src\utilities\logger\ConsoleSink.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\FlieSink.hpp">
+    <ClInclude Include="src\utilities\logger\FileSink.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utilities\logger\LogEntry.hpp">

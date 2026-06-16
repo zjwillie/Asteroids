@@ -204,7 +204,7 @@
     <ClInclude Include="src\core\WorldContext.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
     <ClInclude Include="src\utilities\logger\ConsoleSink.hpp" />
-    <ClInclude Include="src\utilities\logger\FlieSink.hpp" />
+    <ClInclude Include="src\utilities\logger\FileSink.hpp" />
     <ClInclude Include="src\utilities\logger\LogEntry.hpp" />
     <ClInclude Include="src\utilities\logger\Logger.hpp" />
     <ClInclude Include="src\utilities\logger\LogLevel.hpp" />

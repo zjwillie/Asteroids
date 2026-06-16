@@ -1,0 +1,11 @@
+[0.002] [INFO ] [GAME] (Game.cpp:20 in void __cdecl Game::initialize(void)) Logger online
+[1.893] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[1.893] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[1.893] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
+[2.022] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[2.116] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[2.117] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[2.118] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
+[2.243] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[2.390] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 41
+[2.390] [INFO ] [Game] (Game.cpp:108 in void __cdecl Game::shutdown(void)) Shutting down
