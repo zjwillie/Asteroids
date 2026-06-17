@@ -14,7 +14,7 @@ struct KeyState {
 	bool wasReleased{ false };
 
 	// how many times has the key been pressed (size) and when (index value)
-	std::array<float, 16> pressTimestamps{};
+	std::array<double, 16> pressTimestamps{};
 	uint32_t timestampHead{ 0 };
 	uint32_t totalPressCount{ 0 };
 

@@ -5,7 +5,7 @@
 #include "LogLevel.hpp"
 
 struct LogEntry {
-	float timestamp;
+	double timestamp;
 	LogLevel level;
 	std::string channel;
 	std::string file;

@@ -47,7 +47,7 @@ public:
         std::string message);
 
 private:
-    static float computeTimestamp();
+    static double computeTimestamp();
 
     static std::vector<std::unique_ptr<LogSink>> sinks_;
     static LogLevel threshold_;

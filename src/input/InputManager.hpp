@@ -16,7 +16,7 @@ public:
 	bool wasPressed(SDL_Scancode key) const;
 	bool wasReleased(SDL_Scancode key) const;
 
-	float getLastPressDuration(SDL_Scancode key) const;
+	double getLastPressDuration(SDL_Scancode key) const;
 private:
 	std::array<KeyState, SDL_SCANCODE_COUNT> keyboardState_{};
 	std::vector<SDL_Scancode> dirtyKeys_{};

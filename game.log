@@ -1,139 +1,215 @@
 [0.001] [INFO ] [GAME] (Game.cpp:20 in void __cdecl Game::initialize(void)) Logger online
-[2.090] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[2.090] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[2.090] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[2.220] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[2.308] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[2.309] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[2.309] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[2.435] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[2.590] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[2.591] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 1)
-[2.726] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[2.726] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[2.726] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[2.809] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[2.809] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 1)
-[2.828] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[3.182] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[3.182] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[3.182] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[3.226] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[3.226] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 2)
-[3.292] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[3.515] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[3.515] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[3.516] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[3.583] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[3.682] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[3.682] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 2)
-[3.809] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[3.809] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[3.809] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[3.901] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[4.016] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[4.016] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 3)
-[4.114] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[4.114] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[4.114] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[4.190] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[4.309] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[4.309] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 3)
-[4.335] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[4.335] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[4.335] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[4.541] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[4.614] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[4.614] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 4)
-[4.836] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[4.836] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 4)
-[5.207] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.207] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.207] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.273] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.340] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.341] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.341] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.378] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.477] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.477] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.477] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.504] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.573] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.573] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.573] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.622] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.691] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.691] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.691] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.707] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[5.707] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 5)
-[5.726] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.796] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.796] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.796] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.839] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.842] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[5.842] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 5)
-[5.904] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[5.904] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[5.904] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[5.953] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[5.977] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
-[5.977] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 1)
-[6.073] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 8 expired
-[6.074] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 8 (gen 1)
-[6.192] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 9 expired
-[6.192] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 9 (gen 1)
-[6.296] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[6.296] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 6)
-[6.365] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[6.365] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[6.365] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[6.405] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[6.405] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 6)
-[6.428] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[6.498] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[6.498] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[6.499] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[6.552] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[6.626] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[6.626] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[6.626] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[6.662] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[6.863] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[6.863] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[6.863] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[6.865] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[6.865] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 7)
-[6.907] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[6.989] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[6.989] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[6.989] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[6.999] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[6.999] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 7)
-[7.032] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[7.102] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[7.102] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[7.102] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[7.126] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 9 expired
-[7.126] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 9 (gen 2)
-[7.147] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[7.222] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
-[7.222] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
-[7.222] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 28.0, 30.0
-[7.302] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
-[7.363] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 8 expired
-[7.364] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 8 (gen 2)
-[7.489] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
-[7.489] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 8)
-[7.602] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
-[7.602] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 8)
-[7.722] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 9 expired
-[7.722] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 9 (gen 3)
-[7.810] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 53
-[7.875] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 53
-[8.425] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 53
-[8.475] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 53
-[9.206] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 41
-[9.206] [INFO ] [Game] (Game.cpp:108 in void __cdecl Game::shutdown(void)) Shutting down
+[0.986] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 26
+[1.167] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 26
+[1.563] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 26
+[1.714] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[1.932] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[2.434] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 4
+[2.528] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 4
+[2.550] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[2.717] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[3.045] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[3.045] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[3.045] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 79.7, 40.2
+[3.146] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[3.251] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[3.251] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[3.251] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 87.1, 42.3
+[3.345] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[3.379] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[3.504] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[3.545] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[3.545] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 1)
+[3.629] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[3.668] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[3.730] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[3.730] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[3.730] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 103.6, 49.1
+[3.752] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[3.752] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 1)
+[3.871] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[3.953] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[3.953] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[3.953] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 111.3, 52.4
+[4.103] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[4.189] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[4.189] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[4.189] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 119.3, 56.2
+[4.230] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[4.230] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 2)
+[4.301] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[4.317] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[4.453] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[4.453] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 2)
+[4.481] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[4.481] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[4.481] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 128.4, 62.1
+[4.565] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[4.614] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[4.649] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[4.649] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[4.649] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 133.0, 66.1
+[4.689] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
+[4.690] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 1)
+[4.823] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[4.982] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[4.982] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 3)
+[5.115] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[5.115] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[5.115] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 146.5, 77.1
+[5.149] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[5.149] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 3)
+[5.251] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[5.327] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[5.327] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[5.327] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 152.4, 82.4
+[5.433] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[5.615] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[5.616] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 4)
+[5.750] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[5.827] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[5.827] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 4)
+[7.284] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[7.476] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[7.476] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[7.476] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 163.0, 149.8
+[7.561] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[7.608] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[7.976] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[7.976] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 5)
+[8.263] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[8.271] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[8.271] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[8.271] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 139.2, 165.1
+[8.403] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[8.476] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[8.476] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[8.476] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 132.2, 167.7
+[8.585] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[8.622] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[8.772] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[8.772] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 6)
+[8.976] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[8.976] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 5)
+[9.574] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[9.574] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[9.574] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 95.0, 159.6
+[9.599] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[9.694] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[9.764] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[9.764] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[9.764] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 89.4, 155.6
+[9.882] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[9.987] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[9.987] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[9.987] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 83.0, 150.3
+[10.062] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[10.075] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[10.075] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 6)
+[10.140] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[10.140] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[10.140] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 78.8, 146.5
+[10.213] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 1 expired
+[10.213] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 1 (gen 1)
+[10.236] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[10.264] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[10.264] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 7)
+[10.356] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[10.356] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[10.356] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 73.0, 141.0
+[10.443] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[10.487] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
+[10.487] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 2)
+[10.549] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[10.549] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[10.549] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 67.8, 136.0
+[10.640] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[10.640] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 7)
+[10.654] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[10.698] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[10.856] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[10.856] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 8)
+[11.049] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
+[11.049] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 3)
+[11.766] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[11.766] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[11.766] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 54.8, 95.8
+[11.870] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[11.989] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[11.989] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[11.989] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 57.6, 88.4
+[12.066] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[12.266] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
+[12.266] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 4)
+[12.272] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[12.272] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[12.272] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 63.3, 80.3
+[12.378] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[12.480] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[12.480] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[12.480] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 68.9, 75.5
+[12.489] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[12.489] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 9)
+[12.585] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[12.697] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[12.697] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[12.697] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 75.6, 71.9
+[12.763] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[12.772] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 7 expired
+[12.772] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 7 (gen 5)
+[12.980] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[12.980] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 8)
+[13.050] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[13.050] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[13.050] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 87.7, 69.2
+[13.078] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[13.197] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[13.198] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 10)
+[13.204] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[13.299] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[13.299] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[13.299] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 96.6, 68.0
+[13.436] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[13.550] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[13.550] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 9)
+[13.576] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[13.710] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[13.799] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[13.799] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 11)
+[13.858] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[13.858] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[13.858] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 117.3, 68.9
+[13.990] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[14.095] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[14.095] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[14.096] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 126.0, 69.8
+[14.223] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[14.320] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 7
+[14.358] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[14.359] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 12)
+[14.595] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[14.596] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 10)
+[14.700] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 7
+[14.763] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[14.763] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[14.763] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 149.4, 77.5
+[14.871] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[15.136] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[15.136] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[15.136] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 161.9, 83.5
+[15.231] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[15.263] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 6 expired
+[15.263] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 6 (gen 11)
+[15.311] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[15.311] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[15.311] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 167.6, 86.7
+[15.429] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[15.535] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 44
+[15.535] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in void __cdecl ShipControlSystem::update(class WorldContext &,float)) Fire emitted
+[15.536] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in void __cdecl WeaponSystem::update(class WorldContext &,float)) Bullet spawned at 174.9, 90.8
+[15.636] [DEBUG] [Lifetime] (LifetimeSystem.cpp:15 in void __cdecl LifetimeSystem::update(class WorldContext &,float)) Entity 5 expired
+[15.636] [DEBUG] [Cleanup] (CleanupSystem.cpp:22 in void __cdecl CleanupSystem::update(class WorldContext &,float)) Destroying entity 5 (gen 13)
+[15.638] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 44
+[15.659] [DEBUG] [Input] (InputManager.cpp:57 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY UP: 26
+[15.788] [DEBUG] [Input] (InputManager.cpp:34 in void __cdecl InputManager::processEvent(const union SDL_Event &)) KEY DOWN: 41
+[15.789] [INFO ] [Game] (Game.cpp:108 in void __cdecl Game::shutdown(void)) Shutting down

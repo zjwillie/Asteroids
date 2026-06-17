@@ -31,10 +31,10 @@ void Logger::setChannelEnabled(const std::string& channel, bool enabled) {
     channelStates_[channel] = enabled;
 }
 
-float Logger::computeTimestamp() {
+double Logger::computeTimestamp() {
     uint64_t now = SDL_GetPerformanceCounter();
     uint64_t freq = SDL_GetPerformanceFrequency();
-    return static_cast<float>(now - startCounter_) / static_cast<float>(freq);
+    return static_cast<double>(now - startCounter_) / static_cast<double>(freq);
 }
 
 void Logger::log(LogLevel level,
