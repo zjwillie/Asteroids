@@ -46,6 +46,8 @@ void EntityManager::destroy(const EntityHandle& handle) {
 		lifetimes_.remove(handle);
 		bullets_.remove(handle);
 		names_.remove(handle);
+		colliders_.remove(handle);
+		asteroids_.remove(handle);
 	}
 	// might need to throw an error or seomthing here if nothing is destoryed, or a warn
 }
@@ -86,4 +88,12 @@ ComponentStore<Bullet>& EntityManager::getBullets() {
 
 ComponentStore<Name>& EntityManager::getNames() {
 	return names_;
+}
+
+ComponentStore<Collider>& EntityManager::getColliders() {
+	return colliders_;
+}
+
+ComponentStore<Asteroid>& EntityManager::getAsteroids() {
+	return asteroids_;
 }

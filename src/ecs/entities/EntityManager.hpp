@@ -11,6 +11,8 @@
 #include "../components/Lifetime.hpp"
 #include "../components/Bullet.hpp"
 #include "../components/Name.hpp"
+#include "../components/Collider.hpp"
+#include "../components/Asteroid.hpp"
 
 class EntityManager {
 public:
@@ -26,6 +28,8 @@ public:
 	ComponentStore<Lifetime>& getLifetimes();
 	ComponentStore<Bullet>& getBullets();
 	ComponentStore<Name>& getNames();
+	ComponentStore<Collider>& getColliders();
+	ComponentStore<Asteroid>& getAsteroids();
 
 private:
 	std::vector<uint32_t> generations_;
@@ -38,4 +42,6 @@ private:
 	ComponentStore<Lifetime> lifetimes_;
 	ComponentStore<Bullet> bullets_;
 	ComponentStore<Name> names_;
+	ComponentStore<Collider> colliders_;
+	ComponentStore<Asteroid> asteroids_;
 };

@@ -16,7 +16,7 @@ float InputManager::getLastPressDuration(SDL_Scancode key) const {
 	if (keyboardState_[key].totalPressCount == 0) return 0.0f;
 	// if the key is currently down, return the current time
 	if (keyboardState_[key].isDown) {
-		return (SDL_GetTicks() / 1000.0f) - keyboardState_[key].lastPressTime;
+		return (static_cast<float>(SDL_GetTicks()) / 1000.0f) - keyboardState_[key].lastPressTime;
 	}
 	// finally just give the data
 	return keyboardState_[key].lastReleaseTime - keyboardState_[key].lastPressTime;
@@ -28,7 +28,7 @@ void InputManager::processEvent(const SDL_Event& event) {
 		SDL_Scancode key = event.key.scancode;
 		
 		if (!keyboardState_[key].isDown) {
-			float pressTime = SDL_GetTicks() / 1000.0f;
+			float pressTime = (static_cast<float>(SDL_GetTicks())) / 1000.0f;
 
 			// KEY_DOWN block, after updating state:
 			LOG_DEBUG("Input", "KEY DOWN: {}", static_cast<int>(key));
@@ -51,7 +51,7 @@ void InputManager::processEvent(const SDL_Event& event) {
 	else if (event.type == SDL_EVENT_KEY_UP) {
 		// convienice variable
 		SDL_Scancode key = event.key.scancode;
-		float pressTime = SDL_GetTicks() / 1000.0f;
+		float pressTime = (static_cast<float>(SDL_GetTicks())) / 1000.0f;
 
 		// KEY_UP block, after updating state:
 		LOG_DEBUG("Input", "KEY UP: {}", static_cast<int>(key));

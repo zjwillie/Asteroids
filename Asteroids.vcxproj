@@ -173,9 +173,12 @@
     <ClCompile Include="src\utilities\logger\ConsoleSink.cpp" />
     <ClCompile Include="src\utilities\logger\FileSink.cpp" />
     <ClCompile Include="src\utilities\logger\Logger.cpp" />
+    <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ecs\components\Asteroid.hpp" />
     <ClInclude Include="src\ecs\components\Bullet.hpp" />
+    <ClInclude Include="src\ecs\components\Collider.hpp" />
     <ClInclude Include="src\ecs\components\ComponentStore.hpp" />
     <ClInclude Include="src\ecs\components\LifeTime.hpp" />
     <ClInclude Include="src\ecs\components\Name.hpp" />
@@ -183,6 +186,7 @@
     <ClInclude Include="src\ecs\components\Sprite.hpp" />
     <ClInclude Include="src\ecs\components\Transform.hpp" />
     <ClInclude Include="src\ecs\components\Velocity.hpp" />
+    <ClInclude Include="src\ecs\entities\EntityDebug.hpp" />
     <ClInclude Include="src\ecs\entities\EntityHandle.hpp" />
     <ClInclude Include="src\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
@@ -200,6 +204,7 @@
     <ClInclude Include="src\input\InputAction.hpp" />
     <ClInclude Include="src\input\InputManager.hpp" />
     <ClInclude Include="src\input\KeyState.hpp" />
+    <ClInclude Include="src\math\Circle.hpp" />
     <ClInclude Include="src\math\Vec2.hpp" />
     <ClInclude Include="src\core\WorldContext.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
@@ -209,6 +214,7 @@
     <ClInclude Include="src\utilities\logger\Logger.hpp" />
     <ClInclude Include="src\utilities\logger\LogLevel.hpp" />
     <ClInclude Include="src\utilities\logger\LogSink.hpp" />
+    <ClInclude Include="src\utilities\random\Random.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
