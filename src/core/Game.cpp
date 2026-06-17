@@ -12,6 +12,22 @@
 
 #include "../utilities/logger/Logger.hpp"
 #include "../utilities/logger/FileSink.hpp"
+#include "../utilities/random/Random.hpp"
+
+// will move later after DrON
+void Game::spawnAsteroid(Vec2 position, Vec2 velocity, AsteroidSize size) {
+	EntityHandle newAsteroid = entityManager_.create();
+	entityManager_.getAsteroids().add(newAsteroid, {size});
+	entityManager_.getTransforms().add(newAsteroid, Transform{ position, 0.0f });
+	entityManager_.getVelocities().add(newAsteroid, Velocity{ velocity, 0.0f });
+
+	// magic numbers go brrrrrrr
+	int spriteSize = static_cast<int>(size) * 8;
+	float radius = static_cast<float>(static_cast<int>(size)) * 7.0f;
+	entityManager_.getSprites().add(newAsteroid, Sprite{ spriteSize, spriteSize, 255, 100, 100 });
+	entityManager_.getColliders().add(newAsteroid, Collider{ Circle{radius} });
+	entityManager_.getNames().add(newAsteroid, Name{ "Asteroid" });
+}
 
 void Game::initialize() {
 	Logger::initialize();
@@ -49,6 +65,7 @@ void Game::initialize() {
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
 
 	EntityHandle e1 = entityManager_.create();
+	entityManager_.getNames().add(e1, Name{ "Player1" });
 	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });
 	entityManager_.getVelocities().add(e1, Velocity{ Vec2{ 0.0f, 0.0f }, 0.0f });
 	entityManager_.getSprites().add(e1, Sprite{ 10, 10, 255, 100, 100 });
@@ -74,6 +91,28 @@ void Game::initialize() {
 	entityManager_.getTransforms().add(e5, Transform{ Vec2{ 60.0f, 150.0f }, 0.0f });
 	entityManager_.getVelocities().add(e5, Velocity{ Vec2{ 70.0f, 60.0f }, 0.0f });
 	entityManager_.getSprites().add(e5, Sprite{ 10, 10, 255, 100, 255 });
+
+	// add some asteroid
+	Random::initialize();
+
+	spawnAsteroid(
+		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
+		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
+		AsteroidSize::Large
+	);
+
+	spawnAsteroid(
+		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
+		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
+		AsteroidSize::Large
+	);
+
+	spawnAsteroid(
+		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
+		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
+		AsteroidSize::Medium
+	);
+	
 }
 
 void Game::run() {

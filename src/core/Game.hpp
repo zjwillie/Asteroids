@@ -16,6 +16,9 @@ public:
 	void run();
 	void shutdown();
 
+	// will be moved after DrON
+	void spawnAsteroid(Vec2 position, Vec2 velocity, AsteroidSize size);
+
 private:
 	WorldContext worldContext_;
 
