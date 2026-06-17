@@ -11,7 +11,7 @@ EntityHandle EntityManager::create() {
 	}
 	else {
 		// create an all new baby
-		newEntity.index = generations_.size();
+		newEntity.index = static_cast<uint32_t>(generations_.size());
 		newEntity.generation = 1;
 		generations_.push_back(1);
 	}

@@ -28,8 +28,4 @@ private:
 	bool running_ = true;
 
 	std::vector<SDL_Event> frameEvents_;
-
-	float rectX_ = 0.0f;
-	float rectY_ = 90.f;
-	float rectSpeed_ = 50.0f;
 };

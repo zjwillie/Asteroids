@@ -9,17 +9,17 @@ bool WorldContext::isValid() const {
 }
 
 EntityManager& WorldContext::getEntityManager() {
-	assert(entityManagerPtr_ && "EntityManger not initialized!");
+	assert(entityManagerPtr_ && "EntityManager not initialized!");
 	return *entityManagerPtr_;
 }
 
 SDLManager& WorldContext::getSDLManager() {
-	assert(SDLManagerPtr_ && "SDLManger not initialized!");
+	assert(SDLManagerPtr_ && "SDLManager not initialized!");
 	return *SDLManagerPtr_;
 }
 
 SystemManager& WorldContext::getSystemManager() {
-	assert(systemManagerPtr_ && "SystemManger not initialized!");
+	assert(systemManagerPtr_ && "SystemManager not initialized!");
 	return *systemManagerPtr_;
 }
 

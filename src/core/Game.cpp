@@ -17,9 +17,14 @@ void Game::initialize() {
 	Logger::initialize();
 	Logger::addSink(std::make_unique<FileSink>("game.log"));
 
-	LOG_INFO("GAME", "Logger online");
+	LOG_INFO("Game", "Logger online");
 
-	SDLManager_.initialize("Asteroids", 1280, 720);
+	if (!SDLManager_.initialize("Asteroids", 1280, 720)) {
+		LOG_FATAL("SDL", "Failed to initialize SDL");
+		running_ = false;
+		return;
+	}
+
 	worldContext_.setEntityManager(&entityManager_);
 	worldContext_.setSDLManager(&SDLManager_);
 	worldContext_.setSystemManager(&systemManager_);

@@ -12,11 +12,7 @@
 #include "LogSink.hpp"
 
 // Portable function-name macro
-#ifdef _MSC_VER
-#define LOG_FUNC __FUNCSIG__
-#else
 #define LOG_FUNC __func__
-#endif
 
 namespace LoggerDetail {
     constexpr const char* extractFilename(const char* path) {
