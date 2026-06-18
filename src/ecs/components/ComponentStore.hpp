@@ -15,6 +15,7 @@ public:
 	void add(const EntityHandle& entity, T component);
 	void remove(const EntityHandle& entity);
 	T* get(const EntityHandle& entity);
+	bool has(const EntityHandle& entity) const;
 
 	std::unordered_map<uint32_t, T>& getAll();
 	const std::unordered_map<uint32_t, T>& getAll() const;
@@ -54,4 +55,9 @@ T* ComponentStore<T>::get(const EntityHandle& entity) {
 template <typename T>
 void ComponentStore<T>::remove(const EntityHandle& entity) {
 	data_.erase(entity.index);
+}
+
+template <typename T>
+bool ComponentStore<T>::has(const EntityHandle& entity) const {
+	return data_.find(entity.index) != data_.end();
 }

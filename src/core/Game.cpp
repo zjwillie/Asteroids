@@ -9,6 +9,7 @@
 #include "../ecs/systems/LifetimeSystem.hpp"
 #include "../ecs/systems/CleanupSystem.hpp"
 #include "../ecs/systems/WeaponSystem.hpp"
+#include "../ecs/systems/CollisionSystem.hpp"
 
 #include "../utilities/logger/Logger.hpp"
 #include "../utilities/logger/FileSink.hpp"
@@ -60,6 +61,7 @@ void Game::initialize() {
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());
 	systemManager_.registerSystem(std::make_unique<LifetimeSystem>());
+	systemManager_.registerSystem(std::make_unique<CollisionSystem>());
 	systemManager_.registerSystem(std::make_unique<WeaponSystem>());
 	systemManager_.registerSystem(std::make_unique<CleanupSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
@@ -70,6 +72,7 @@ void Game::initialize() {
 	entityManager_.getVelocities().add(e1, Velocity{ Vec2{ 0.0f, 0.0f }, 0.0f });
 	entityManager_.getSprites().add(e1, Sprite{ 10, 10, 255, 100, 100 });
 	entityManager_.getPlayerControlled().add(e1, PlayerControlled{});
+	entityManager_.getColliders().add(e1, Collider{ Circle{ 5.0f } });
 
 	EntityHandle e2 = entityManager_.create();
 	entityManager_.getTransforms().add(e2, Transform{ Vec2{ 80.0f, 60.0f }, 0.0f });

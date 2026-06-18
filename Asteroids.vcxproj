@@ -159,6 +159,7 @@
     <ClCompile Include="src\ecs\entities\EntityManager.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\ecs\systems\CleanupSystem.cpp" />
+    <ClCompile Include="src\ecs\systems\CollisionSystem.cpp" />
     <ClCompile Include="src\ecs\systems\LifetimeSystem.cpp" />
     <ClCompile Include="src\ecs\systems\MovementSystem.cpp" />
     <ClCompile Include="src\ecs\systems\RenderSystem.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="src\ecs\entities\EntityManager.hpp" />
     <ClInclude Include="src\core\Game.hpp" />
     <ClInclude Include="src\ecs\systems\CleanupSystem.hpp" />
+    <ClInclude Include="src\ecs\systems\CollisionSystem.hpp" />
     <ClInclude Include="src\ecs\systems\LifetimeSystem.hpp" />
     <ClInclude Include="src\ecs\systems\MovementSystem.hpp" />
     <ClInclude Include="src\ecs\systems\RenderSystem.hpp" />
@@ -199,8 +201,10 @@
     <ClInclude Include="src\ecs\systems\SystemManager.hpp" />
     <ClInclude Include="src\ecs\systems\WarpSystem.hpp" />
     <ClInclude Include="src\ecs\systems\WeaponSystem.hpp" />
+    <ClInclude Include="src\events\BulletHitAsteroidEvent.hpp" />
     <ClInclude Include="src\events\EventManager.hpp" />
     <ClInclude Include="src\events\FireRequestedEvent.hpp" />
+    <ClInclude Include="src\events\ShipHitAsteroidEvent.hpp" />
     <ClInclude Include="src\input\InputAction.hpp" />
     <ClInclude Include="src\input\InputManager.hpp" />
     <ClInclude Include="src\input\KeyState.hpp" />

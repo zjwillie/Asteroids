@@ -21,5 +21,6 @@ void WeaponSystem::update(WorldContext& worldContext, float) {
         worldContext.getEntityManager().getSprites().add(bullet, Sprite{ 3, 3, 255, 255, 0 });
         worldContext.getEntityManager().getLifetimes().add(bullet, Lifetime{ 0.5f, false });
         worldContext.getEntityManager().getBullets().add(bullet, Bullet{});
+        worldContext.getEntityManager().getColliders().add(bullet, Collider{ Circle{ 2.0f } });
     }
 }
