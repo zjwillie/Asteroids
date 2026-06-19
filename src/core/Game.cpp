@@ -10,25 +10,15 @@
 #include "../ecs/systems/CleanupSystem.hpp"
 #include "../ecs/systems/WeaponSystem.hpp"
 #include "../ecs/systems/CollisionSystem.hpp"
+#include "../ecs/systems/AsteroidResponseSystem.hpp"
+#include "../ecs/systems/ShipResponseSystem.hpp"
+
+// Need while spawning asteroids in init
+#include "../ecs/components/Asteroid.hpp"
 
 #include "../utilities/logger/Logger.hpp"
 #include "../utilities/logger/FileSink.hpp"
 #include "../utilities/random/Random.hpp"
-
-// will move later after DrON
-void Game::spawnAsteroid(Vec2 position, Vec2 velocity, AsteroidSize size) {
-	EntityHandle newAsteroid = entityManager_.create();
-	entityManager_.getAsteroids().add(newAsteroid, {size});
-	entityManager_.getTransforms().add(newAsteroid, Transform{ position, 0.0f });
-	entityManager_.getVelocities().add(newAsteroid, Velocity{ velocity, 0.0f });
-
-	// magic numbers go brrrrrrr
-	int spriteSize = static_cast<int>(size) * 8;
-	float radius = static_cast<float>(static_cast<int>(size)) * 7.0f;
-	entityManager_.getSprites().add(newAsteroid, Sprite{ spriteSize, spriteSize, 255, 100, 100 });
-	entityManager_.getColliders().add(newAsteroid, Collider{ Circle{radius} });
-	entityManager_.getNames().add(newAsteroid, Name{ "Asteroid" });
-}
 
 void Game::initialize() {
 	Logger::initialize();
@@ -56,12 +46,13 @@ void Game::initialize() {
 		return;
 	}
 
-	// set systems, this will be the order they are called so be careful
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());
 	systemManager_.registerSystem(std::make_unique<LifetimeSystem>());
 	systemManager_.registerSystem(std::make_unique<CollisionSystem>());
+	systemManager_.registerSystem(std::make_unique<AsteroidResponseSystem>());
+	systemManager_.registerSystem(std::make_unique<ShipResponseSystem>());
 	systemManager_.registerSystem(std::make_unique<WeaponSystem>());
 	systemManager_.registerSystem(std::make_unique<CleanupSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
@@ -95,26 +86,33 @@ void Game::initialize() {
 	entityManager_.getVelocities().add(e5, Velocity{ Vec2{ 70.0f, 60.0f }, 0.0f });
 	entityManager_.getSprites().add(e5, Sprite{ 10, 10, 255, 100, 255 });
 
-	// add some asteroid
-	Random::initialize();
+	// three large asteroids away from ship
+	EntityHandle asteroid1 = entityManager_.create();
+	entityManager_.getNames().add(asteroid1, Name{ "Asteroid" });
+	entityManager_.getAsteroids().add(asteroid1, { AsteroidSize::Large });
+	entityManager_.getTransforms().add(asteroid1, Transform{ Vec2{ 220.0f, 40.0f }, 0.0f });
+	entityManager_.getVelocities().add(asteroid1, Velocity{ Vec2{ -15.0f, 8.0f }, 0.0f });
+	entityManager_.getSprites().add(asteroid1, Sprite{ 24, 24, 255, 100, 100 });
+	entityManager_.getColliders().add(asteroid1, Collider{ Circle{ 21.0f } });
+	entityManager_.getLifetimes().add(asteroid1, Lifetime{ 0.0f, false });
 
-	spawnAsteroid(
-		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
-		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
-		AsteroidSize::Large
-	);
+	EntityHandle asteroid2 = entityManager_.create();
+	entityManager_.getNames().add(asteroid2, Name{ "Asteroid" });
+	entityManager_.getAsteroids().add(asteroid2, { AsteroidSize::Large });
+	entityManager_.getTransforms().add(asteroid2, Transform{ Vec2{ 280.0f, 140.0f }, 0.0f });
+	entityManager_.getVelocities().add(asteroid2, Velocity{ Vec2{ -10.0f, -12.0f }, 0.0f });
+	entityManager_.getSprites().add(asteroid2, Sprite{ 24, 24, 255, 100, 100 });
+	entityManager_.getColliders().add(asteroid2, Collider{ Circle{ 21.0f } });
+	entityManager_.getLifetimes().add(asteroid2, Lifetime{ 0.0f, false });
 
-	spawnAsteroid(
-		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
-		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
-		AsteroidSize::Large
-	);
-
-	spawnAsteroid(
-		Vec2{ Random::floatRange(0.0f, 320.0f), Random::floatRange(0.0f, 180.0f) },
-		Vec2{ Random::floatRange(-20.0f, 20.0f), Random::floatRange(-20.0f, 20.0f) },
-		AsteroidSize::Medium
-	);
+	EntityHandle asteroid3 = entityManager_.create();
+	entityManager_.getNames().add(asteroid3, Name{ "Asteroid" });
+	entityManager_.getAsteroids().add(asteroid3, { AsteroidSize::Large });
+	entityManager_.getTransforms().add(asteroid3, Transform{ Vec2{ 160.0f, 155.0f }, 0.0f });
+	entityManager_.getVelocities().add(asteroid3, Velocity{ Vec2{ 12.0f, -9.0f }, 0.0f });
+	entityManager_.getSprites().add(asteroid3, Sprite{ 24, 24, 255, 100, 100 });
+	entityManager_.getColliders().add(asteroid3, Collider{ Circle{ 21.0f } });
+	entityManager_.getLifetimes().add(asteroid3, Lifetime{ 0.0f, false });
 	
 }
 

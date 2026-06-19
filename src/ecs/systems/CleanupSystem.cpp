@@ -19,7 +19,12 @@ void CleanupSystem::update(WorldContext& worldContext, float deltaTime) {
 	}
 
 	for (EntityHandle handle : toDestroy) {
-		LOG_DEBUG("Cleanup", "Destroying entity {} (gen {})", handle.index, handle.generation);
+		Name* name = worldContext.getEntityManager().getNames().get(handle);
+		LOG_DEBUG("Cleanup", "Destroying {} ({}) '{}'",
+			handle.index,
+			handle.generation,
+			name ? name->name : "unnamed"
+		);
 		worldContext.getEntityManager().destroy(handle);
 	}
 }

@@ -4,5 +4,5 @@
 
 struct BulletHitAsteroidEvent {
 	EntityHandle bulletHandle;
-	EntityHandle asteoridHandle;
+	EntityHandle asteroidHandle;
 };

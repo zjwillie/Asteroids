@@ -33,14 +33,18 @@ void CollisionSystem::update(WorldContext& worldContext, float deltaTime) {
 				bool bIsAsteroid	= worldContext.getEntityManager().getAsteroids().has(handleB);
 				bool bIsShip		= worldContext.getEntityManager().getPlayerControlled().has(handleB);
 				if ((aIsBullet && bIsAsteroid) || (bIsBullet && aIsAsteroid)) {
-					LOG_DEBUG("Collision", "Bullet hit asteroid!");
+					if constexpr (kDebugLogging) {
+						LOG_DEBUG("Collision", "Bullet hit asteroid!");
+					}
 					EntityHandle bullet = aIsBullet ? handleA : handleB;
 					EntityHandle asteroid = aIsAsteroid ? handleA : handleB;
 					worldContext.getEventManager().emit(BulletHitAsteroidEvent{ bullet, asteroid });
 				}
 
 				if ((aIsShip && bIsAsteroid) || (bIsShip && aIsAsteroid)) {
-					LOG_DEBUG("Collision", "Ship hit asteroid!");
+					if constexpr (kDebugLogging) {
+						LOG_DEBUG("Collision", "Ship hit asteroid!");
+					}
 					EntityHandle ship = aIsShip ? handleA : handleB;
 					EntityHandle asteroid = aIsAsteroid ? handleA : handleB;
 					worldContext.getEventManager().emit(ShipHitAsteroidEvent{ ship, asteroid });

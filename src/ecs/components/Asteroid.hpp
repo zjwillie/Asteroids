@@ -1,6 +1,6 @@
 #pragma once
 
-enum class AsteroidSize :int {
+enum class AsteroidSize : int {
 	Dead = 0,
 	Small = 1,
 	Medium = 2,
