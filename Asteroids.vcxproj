@@ -176,6 +176,8 @@
     <ClCompile Include="src\utilities\logger\ConsoleSink.cpp" />
     <ClCompile Include="src\utilities\logger\FileSink.cpp" />
     <ClCompile Include="src\utilities\logger\Logger.cpp" />
+    <ClCompile Include="src\utilities\parser\DronParser.cpp" />
+    <ClCompile Include="src\utilities\parser\DronTokenizer.cpp" />
     <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +224,10 @@
     <ClInclude Include="src\utilities\logger\Logger.hpp" />
     <ClInclude Include="src\utilities\logger\LogLevel.hpp" />
     <ClInclude Include="src\utilities\logger\LogSink.hpp" />
+    <ClInclude Include="src\utilities\parser\DronNode.hpp" />
+    <ClInclude Include="src\utilities\parser\DronParser.hpp" />
+    <ClInclude Include="src\utilities\parser\DronToken.hpp" />
+    <ClInclude Include="src\utilities\parser\DronTokenizer.hpp" />
     <ClInclude Include="src\utilities\random\Random.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

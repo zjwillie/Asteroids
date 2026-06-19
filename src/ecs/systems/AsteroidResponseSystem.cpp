@@ -51,6 +51,17 @@ void AsteroidResponseSystem::update(WorldContext& worldContext, float deltaTime)
         Lifetime* bulletLifetime = worldContext.getEntityManager().getLifetimes().get(bulletHitAsteroid.bulletHandle);
         if (bulletLifetime) bulletLifetime->isDead = true;
 
+        // score
+        auto& playerControlleds = worldContext.getEntityManager().getPlayerControlled().getAll();
+        for (auto& [index, playerControlled] : playerControlleds) {
+            switch (asteroid->size) {
+            case AsteroidSize::Large:  playerControlled.score += 20;  break;
+            case AsteroidSize::Medium: playerControlled.score += 50;  break;
+            case AsteroidSize::Small:  playerControlled.score += 100; break;
+            default: break;
+            }
+        }
+
         Lifetime* asteroidLifetime = worldContext.getEntityManager().getLifetimes().get(bulletHitAsteroid.asteroidHandle);
         if (asteroidLifetime) asteroidLifetime->isDead = true;
     }
