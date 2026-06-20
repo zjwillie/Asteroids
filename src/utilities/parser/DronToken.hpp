@@ -12,8 +12,14 @@ enum class TokenType {
 	RIGHT_BRACKET,
 	LEFT_BRACE,
 	RIGHT_BRACE,
-	COMMA,
 	TRIPLE_QUOTE,
+	COMMA,
+	COMMENT,
+	BLANK,
+
+	// errors
+	UNKNOWN,
+	UNKNOWN_VALUE,
 
 	// values
 	INTEGER,
@@ -24,7 +30,7 @@ enum class TokenType {
 
 	// keys
 	KEY,
-
+	
 	// housekeeping
 	END_OF_FILE
 };
@@ -32,5 +38,5 @@ enum class TokenType {
 struct Token {
 	TokenType type;
 	std::string value;
-	int line;
+	uint32_t lineNumber;
 };

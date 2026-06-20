@@ -1,0 +1,28 @@
+# DrON tokenizer test file
+[Meta]
+name = "Asteroid"
+count = 42
+speed = 3.14
+visible = true
+layer = LAYER_DYNAMIC
+
+[Transform]
+x = 10.0
+y = -5.0
+rotation = 0.0
+
+[Tags]
+tags = ["enemy", "large", "debris"]
+
+[Nested]
+data = {
+    speed = 3.5,
+    active = true
+}
+
+[Multiline]
+description =
+"""
+A large asteroid
+floating in space
+"""
