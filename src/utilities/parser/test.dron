@@ -1,28 +1,83 @@
-# DrON tokenizer test file
-[Meta]
-name = "Asteroid"
-count = 42
-speed = 3.14
-visible = true
-layer = LAYER_DYNAMIC
+# === BASIC TYPES ===
+[Basic]
+string_val = "hello world"
+int_val = 42
+negative_int = -7
+double_val = 3.14
+negative_double = -0.5
+bool_true = true
+bool_false = false
+identifier = LAYER_DYNAMIC
+empty_string = ""
 
-[Transform]
-x = 10.0
-y = -5.0
-rotation = 0.0
+# === EDGE CASE NUMBERS ===
+[Numbers]
+zero = 0
+zero_double = 0.0
+leading_dot = .5
+negative_leading_dot = -.25
+bare_minus = -
+bare_dot = .
+big_number = 999999
 
-[Tags]
-tags = ["enemy", "large", "debris"]
+# === ARRAYS ===
+[Arrays]
+empty_array = []
+single = ["only"]
+strings = ["one", "two", "three"]
+ints = [1, 2, 3]
+mixed_numeric = [1, 2.5, 3]
+identifiers = [LAYER_ONE, LAYER_TWO]
+multiline_array = [
+    "alpha",
+    "beta",
+    "gamma"
+]
 
-[Nested]
-data = {
-    speed = 3.5,
-    active = true
+# === MAPS ===
+[Maps]
+inline_map = {x = 10, y = 20}
+multiline_map = {
+    name = "test",
+    value = 42,
+    flag = true
 }
 
+# === NESTED ===
+[Nested]
+deep = {
+    inner = {
+        x = 1
+    }
+}
+map_with_array = {
+    tags = ["a", "b"],
+    count = 5
+}
+
+# === MULTILINE STRINGS ===
 [Multiline]
-description =
+normal =
 """
-A large asteroid
-floating in space
+line one
+line two
+line three
 """
+empty_multi =
+"""
+"""
+
+# === DOTTED SECTIONS ===
+[Dotted.Path.Test]
+value = "deep"
+
+# === MALFORMED (should emit UNKNOWN) ===
+[Bad]
+123invalid = "bad key"
+= "no key"
+no_equals_here
+  
+# === INLINE COMMENTS ===
+[Comments]
+speed = 3.5 # this is the speed
+name = "Bob" # player name
