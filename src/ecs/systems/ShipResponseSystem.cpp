@@ -1,9 +1,14 @@
+#include "pch.h"
+
 #include <vector>
 #include <cmath>
 
 #include "ShipResponseSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../events/EventManager.hpp"
+#include "../../math/Vec2.hpp"
 #include "../../utilities/logger/Logger.hpp"
 
 void ShipResponseSystem::update(WorldContext& worldContext, float deltaTime) {

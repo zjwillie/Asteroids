@@ -1,6 +1,9 @@
+#include "pch.h"
+
 #include "WarpSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
 #include "../entities/EntityHandle.hpp"
 #include "../components/Transform.hpp"
 

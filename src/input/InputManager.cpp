@@ -1,3 +1,5 @@
+#include "pch.h"
+
 // FUTURE: pressDurations ring buffer (parallel to pressTimestamps) could be added here.
 // Fill on KEY_UP: pressDurations[totalPressCount % 16] = lastReleaseTime - lastPressTime
 // This would enable combo/sequence detection in a higher-level InputInterpreter that

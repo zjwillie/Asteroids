@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "Logger.hpp"
 
 #include <SDL3/SDL.h>

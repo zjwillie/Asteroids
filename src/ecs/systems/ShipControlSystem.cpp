@@ -1,7 +1,12 @@
+#include "pch.h"
+
 #include "ShipControlSystem.hpp"
 
 #include "../../input/InputAction.hpp"
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../input/InputManager.hpp"
+#include "../../events/EventManager.hpp"
 #include "../../utilities/logger/Logger.hpp"
 
 void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {

@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include <cstdio>
 #include <format>
 #include <string_view>

@@ -1,12 +1,14 @@
 #pragma once
 
-#include <cassert>
-
-#include "../ecs/entities/EntityManager.hpp"
-#include "../platform/SDLManager.hpp"
-#include "../ecs/systems/SystemManager.hpp"
-#include "../input/InputManager.hpp"
-#include "../events/EventManager.hpp"
+// The managers are referenced here only through pointers (members) and
+// references (accessor return types), so forward declarations are sufficient.
+// Translation units that actually call into a manager include its full
+// definition directly.
+class EntityManager;
+class SDLManager;
+class SystemManager;
+class InputManager;
+class EventManager;
 
 class WorldContext {
 public:

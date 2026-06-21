@@ -1,7 +1,5 @@
 #pragma once
 
-#include <SDL3/SDL.h>
-
 #include "System.hpp"
 #include "../../input/InputAction.hpp"
 

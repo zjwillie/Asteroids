@@ -80,7 +80,9 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,7 +103,9 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,7 +124,9 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +147,9 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +162,9 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\core\WorldContext.cpp" />
     <ClCompile Include="src\ecs\entities\EntityHandle.cpp" />
     <ClCompile Include="src\ecs\entities\EntityManager.cpp" />
@@ -161,7 +172,7 @@
     <ClCompile Include="src\ecs\systems\AsteroidResponseSystem.cpp" />
     <ClCompile Include="src\ecs\systems\CleanupSystem.cpp" />
     <ClCompile Include="src\ecs\systems\CollisionSystem.cpp" />
-    <ClCompile Include="src\ecs\systems\LifetimeSystem.cpp" />
+    <ClCompile Include="src\ecs\systems\LifeTimeSystem.cpp" />
     <ClCompile Include="src\ecs\systems\MovementSystem.cpp" />
     <ClCompile Include="src\ecs\systems\RenderSystem.cpp" />
     <ClCompile Include="src\ecs\systems\ShipControlSystem.cpp" />
@@ -181,6 +192,7 @@
     <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\ecs\components\Asteroid.hpp" />
     <ClInclude Include="src\ecs\components\Bullet.hpp" />
     <ClInclude Include="src\ecs\components\Collider.hpp" />
@@ -198,7 +210,7 @@
     <ClInclude Include="src\ecs\systems\AsteroidResponseSystem.hpp" />
     <ClInclude Include="src\ecs\systems\CleanupSystem.hpp" />
     <ClInclude Include="src\ecs\systems\CollisionSystem.hpp" />
-    <ClInclude Include="src\ecs\systems\LifetimeSystem.hpp" />
+    <ClInclude Include="src\ecs\systems\LifeTimeSystem.hpp" />
     <ClInclude Include="src\ecs\systems\MovementSystem.hpp" />
     <ClInclude Include="src\ecs\systems\RenderSystem.hpp" />
     <ClInclude Include="src\ecs\systems\ShipControlSystem.hpp" />

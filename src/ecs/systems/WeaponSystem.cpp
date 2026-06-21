@@ -1,8 +1,12 @@
+#include "pch.h"
+
 #include <vector>
 
 #include "WeaponSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../events/EventManager.hpp"
 #include "../../events/FireRequestedEvent.hpp"
 #include "../../utilities/logger/Logger.hpp"
 

@@ -1,8 +1,11 @@
+#include "pch.h"
+
 #include <vector>
 
 #include "CleanupSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
 #include "../../utilities/logger/Logger.hpp"
 
 

@@ -1,9 +1,13 @@
+#include "pch.h"
+
 #include <vector>
 #include <cmath>
 
 #include "AsteroidResponseSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../events/EventManager.hpp"
 #include "../../utilities/logger/Logger.hpp"
 #include "../../utilities/random/Random.hpp"
 

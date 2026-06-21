@@ -16,6 +16,7 @@ enum class TokenType: uint8_t {
 	RIGHT_BRACE,
 	COMMA,
 	COMMENT,
+	INLINE_COMMENT,
 	BLANK,
 
 	// errors
@@ -58,6 +59,7 @@ inline const std::vector<std::pair<TokenType, std::string_view>>& tokenTypeLUT()
 		{ TokenType::RIGHT_BRACE,    "RIGHT_BRACE" },
 		{ TokenType::COMMA,          "COMMA" },
 		{ TokenType::COMMENT,        "COMMENT" },
+		{ TokenType::COMMENT,        "INLINE_COMMENT" },
 		{ TokenType::BLANK,          "BLANK" },
 
 		// errors

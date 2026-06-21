@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "SystemManager.hpp"
 
 void SystemManager::registerSystem(std::unique_ptr<System> system) {

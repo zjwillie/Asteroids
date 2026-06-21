@@ -1,6 +1,10 @@
+#include "pch.h"
+
 #include "CollisionSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../events/EventManager.hpp"
 #include "../../utilities/logger/Logger.hpp"
 
 void CollisionSystem::update(WorldContext& worldContext, float deltaTime) {

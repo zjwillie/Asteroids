@@ -1,6 +1,9 @@
+#include "pch.h"
+
 #include "MovementSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
 #include "../entities/EntityHandle.hpp"
 #include "../components/Transform.hpp"
 

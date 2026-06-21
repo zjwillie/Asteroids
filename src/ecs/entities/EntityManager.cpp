@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "EntityManager.hpp"
 
 EntityHandle EntityManager::create() {

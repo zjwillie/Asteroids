@@ -1,6 +1,10 @@
+#include "pch.h"
+
 #include "RenderSystem.hpp"
 
 #include "../../core/WorldContext.hpp"
+#include "../entities/EntityManager.hpp"
+#include "../../platform/SDLManager.hpp"
 #include "../entities/EntityHandle.hpp"
 #include "../components/Transform.hpp"
 

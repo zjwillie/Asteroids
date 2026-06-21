@@ -1,4 +1,8 @@
+#include "pch.h"
+
 #include "WorldContext.hpp"
+
+#include <cassert>
 
 bool WorldContext::isValid() const {
 	return entityManagerPtr_ != nullptr 

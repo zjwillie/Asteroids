@@ -1,3 +1,5 @@
+#include "pch.h"
+
 // DronTokenizer.cpp
 
 #include <fstream>
@@ -36,6 +38,17 @@ namespace {
 
     size_t get_decimal_position(const std::string& line) {
         return line.find('.');
+    }
+
+    void writeToFile(const std::string& content, const std::string& path)
+    {
+        std::ofstream file(path);
+        if (!file.is_open())
+        {
+            std::cerr << "Failed to open file for writing: " << path << "\n";
+            return;
+        }
+        file << content;
     }
 }
 
@@ -93,7 +106,7 @@ void DronTokenizer::tokenizeValue(const std::string& value) {
         // inline comment - grab it and emit a token so it will be it's own line now
         if (value[position] == '#') {
             std::string tokenString = value.substr(position);
-            emitToken(TokenType::COMMENT, std::move(tokenString), lineNumber_);
+            emitToken(TokenType::INLINE_COMMENT, std::move(tokenString), lineNumber_);
             return;
         }
 
@@ -315,11 +328,17 @@ std::string DronTokenizer::untokenize() {
             token.type == TokenType::RIGHT_BRACE);
 
         if ((isValue || isClosing) && depth == 0) {
-            untokenized_text_ += "\n";
+            bool nextIsInlineComment = (i + 1 < tokens_.size() &&
+                tokens_[i + 1].type == TokenType::INLINE_COMMENT);
+            if (!nextIsInlineComment)
+                untokenized_text_ += "\n";
         }
 
         // trivia always newlines
-        if (token.type == TokenType::BLANK) {
+        if (token.type == TokenType::INLINE_COMMENT) {
+            untokenized_text_ += " " + token.value + "\n";
+        }
+        else if (token.type == TokenType::BLANK) {
             untokenized_text_ += token.value + "\n";
         }
         else if (token.type == TokenType::SECTION_HEADER || token.type == TokenType::COMMENT) {
@@ -407,4 +426,6 @@ void DronTokenizer::test(const std::string& filepath) {
     LOG_DEBUG("DronTokenizer", "=== PASS 1: {} tokens | PASS 2: {} tokens | {} ===",
         tokens1.size(), tokens2.size(),
         tokens1.size() == tokens2.size() ? "MATCH" : "MISMATCH");
+
+    writeToFile(t2.untokenize(), "untokenized_test.dron");
 }
