@@ -1,170 +1,179 @@
 [0.001] [INFO ] [Game] (Game.cpp:27 in initialize) Logger online
-[1.445] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 26
-[1.688] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[1.874] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[2.142] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[2.142] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[2.143] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 43.3, 37.6
-[2.241] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[2.317] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[2.317] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[2.317] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 48.8, 40.5
-[2.431] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[2.501] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[2.501] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[2.501] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 54.6, 43.8
-[2.597] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 7 (1) 'Asteroid'
-[2.598] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (1) 'Asteroid'
-[2.598] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (1) 'Bullet'
-[2.598] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[2.697] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
-[2.770] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 11 (1) 'Asteroid'
-[2.770] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 9 (1) 'Bullet'
-[2.770] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (1) 'Asteroid'
-[2.840] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
-[2.865] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[2.865] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[2.865] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 67.4, 47.3
-[2.940] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 8 (2) 'Asteroid'
-[2.940] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (1) 'Bullet'
-[2.941] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (2) 'Asteroid'
-[2.970] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[3.123] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 5 (1) 'Asteroid'
-[3.124] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 5 (1) 'Asteroid'
-[3.124] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (2) 'Bullet'
-[3.332] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[3.332] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[3.332] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 84.0, 51.6
-[3.395] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[3.471] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[3.471] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[3.471] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 89.1, 52.4
-[3.552] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[3.594] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 8 (3) 'Asteroid'
-[3.594] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (3) 'Asteroid'
-[3.594] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (3) 'Bullet'
-[3.646] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[3.646] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[3.646] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 95.6, 53.3
-[3.704] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[3.717] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 17 (1) 'Asteroid'
-[3.717] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 5 (2) 'Bullet'
-[3.717] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 17 (1) 'Asteroid'
-[3.826] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[3.827] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[3.827] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 102.2, 54.2
-[3.904] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[3.966] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 10 (2) 'Asteroid'
-[3.966] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (2) 'Asteroid'
-[3.966] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (4) 'Bullet'
-[4.014] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[4.014] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[4.014] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 109.2, 55.1
-[4.125] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[4.172] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 19 (1) 'Asteroid'
-[4.173] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 17 (2) 'Bullet'
-[4.173] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (1) 'Asteroid'
-[4.216] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[4.216] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[4.216] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 116.7, 56.0
-[4.323] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[4.365] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 6 (1) 'Asteroid'
-[4.366] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 6 (1) 'Asteroid'
-[4.366] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (5) 'Bullet'
-[4.541] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[4.569] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 10 (3) 'Asteroid'
-[4.569] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (2) 'Bullet'
-[4.569] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (3) 'Asteroid'
-[4.894] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[4.991] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[4.991] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[4.991] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 138.6, 69.9
-[5.107] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[5.233] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[5.233] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[5.233] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 143.5, 76.7
-[5.335] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[5.449] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 11 (6) 'Asteroid'
-[5.450] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (6) 'Asteroid'
-[5.450] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (3) 'Bullet'
-[5.452] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[5.452] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[5.452] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 147.2, 83.8
-[5.488] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
-[5.491] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (4) 'Bullet'
-[5.590] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[5.797] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[5.797] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[5.797] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 158.4, 89.1
-[5.894] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[5.909] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 17 (3) 'Asteroid'
-[5.909] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 17 (3) 'Asteroid'
-[5.909] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (5) 'Bullet'
-[5.952] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (4) 'Bullet'
-[6.040] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[6.040] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[6.041] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 165.0, 87.2
-[6.139] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[6.285] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[6.285] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[6.285] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 168.1, 82.0
-[6.344] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[6.426] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[6.426] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[6.426] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 167.9, 78.6
-[6.477] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 12 (1) 'Asteroid'
-[6.477] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 12 (1) 'Asteroid'
-[6.477] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (5) 'Bullet'
-[6.484] [DEBUG] [Ship] (ShipResponseSystem.cpp:43 in update) Ship hit! Lives remaining: 2
-[6.537] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[6.636] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[6.636] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[6.636] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 168.6, 86.3
-[6.637] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 22 (1) 'Asteroid'
-[6.637] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 22 (1) 'Asteroid'
-[6.637] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (6) 'Bullet'
-[6.780] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[6.785] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (6) 'Bullet'
-[6.927] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 17 (4) 'Bullet'
-[6.934] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[6.934] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[6.934] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 169.2, 78.1
-[7.044] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[7.144] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[7.144] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[7.144] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 167.0, 72.8
-[7.249] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[7.339] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[7.339] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[7.339] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 162.9, 69.9
-[7.434] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 17 (5) 'Bullet'
-[7.479] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[7.644] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 10 (7) 'Bullet'
-[7.684] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
-[7.839] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (7) 'Bullet'
-[8.074] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[8.334] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[8.839] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[8.980] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[9.417] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
-[9.909] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
-[10.177] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 1 (1) 'unnamed'
-[10.379] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
-[10.576] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
-[11.141] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[11.208] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[11.581] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
-[11.581] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
-[11.581] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 52.1, 105.6
-[12.081] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 1 (2) 'Bullet'
-[12.086] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
-[12.228] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[12.614] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[12.808] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
-[13.141] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
-[13.337] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
-[13.538] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
-[15.147] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 26
-[16.422] [DEBUG] [Ship] (ShipResponseSystem.cpp:43 in update) Ship hit! Lives remaining: 1
-[17.088] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 41
-[17.088] [INFO ] [Game] (Game.cpp:153 in shutdown) Shutting down
+[0.368] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[0.614] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[0.707] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 26
+[1.254] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
+[1.413] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
+[1.570] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[1.570] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[1.570] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 45.7, 46.5
+[1.644] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[2.070] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (1) 'Bullet'
+[2.082] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
+[2.162] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
+[2.432] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[2.433] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[2.433] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 76.3, 53.1
+[2.540] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[2.641] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[2.642] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[2.642] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 84.1, 53.7
+[2.681] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 5 (1) 'Asteroid'
+[2.682] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 5 (1) 'Asteroid'
+[2.682] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (2) 'Bullet'
+[2.714] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[2.784] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[2.785] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[2.785] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 89.4, 54.0
+[2.851] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[2.870] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 11 (1) 'Asteroid'
+[2.870] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 9 (1) 'Bullet'
+[2.870] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 11 (1) 'Asteroid'
+[2.924] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[3.003] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 13 (1) 'Asteroid'
+[3.003] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (3) 'Bullet'
+[3.004] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 13 (1) 'Asteroid'
+[3.046] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[3.489] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[3.490] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[3.490] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 114.4, 61.5
+[3.608] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[3.668] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[3.668] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[3.668] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 120.6, 63.9
+[3.769] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[3.789] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 7 (1) 'Asteroid'
+[3.789] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (1) 'Asteroid'
+[3.789] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 13 (2) 'Bullet'
+[3.868] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[3.868] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[3.868] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 127.5, 66.6
+[3.993] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 6 (1) 'Asteroid'
+[3.993] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 6 (1) 'Asteroid'
+[3.993] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 8 (4) 'Bullet'
+[4.011] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[4.166] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 7 (2) 'Asteroid'
+[4.166] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 13 (3) 'Bullet'
+[4.166] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (2) 'Asteroid'
+[4.189] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[4.552] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[4.597] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[4.598] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[4.598] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 143.9, 84.5
+[4.712] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 9 (2) 'Asteroid'
+[4.712] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 9 (2) 'Asteroid'
+[4.712] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (3) 'Bullet'
+[4.722] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[4.755] [DEBUG] [Ship] (ShipResponseSystem.cpp:43 in update) Ship hit! Lives remaining: 2
+[4.787] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[4.788] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[4.788] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 168.1, 90.0
+[4.894] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[5.161] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 15 (1) 'Asteroid'
+[5.161] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 15 (1) 'Asteroid'
+[5.161] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (4) 'Bullet'
+[5.176] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
+[5.617] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
+[5.746] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[5.747] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[5.747] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 186.5, 75.1
+[5.748] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 19 (1) 'Asteroid'
+[5.748] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 19 (1) 'Asteroid'
+[5.748] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (5) 'Bullet'
+[5.824] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[5.899] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[6.005] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[6.287] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[6.288] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[6.288] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 197.4, 59.1
+[6.500] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[6.565] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[6.788] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (6) 'Bullet'
+[7.395] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[7.395] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[7.396] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 221.8, 57.1
+[7.432] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[7.532] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[7.538] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 16 (1) 'Asteroid'
+[7.538] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 16 (1) 'Asteroid'
+[7.538] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (7) 'Bullet'
+[7.599] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[7.600] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[7.600] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 223.8, 62.6
+[7.702] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[7.775] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 26
+[7.881] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
+[7.991] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
+[8.100] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (8) 'Bullet'
+[8.134] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[8.391] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[8.763] [DEBUG] [Ship] (ShipResponseSystem.cpp:43 in update) Ship hit! Lives remaining: 1
+[9.754] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 4
+[9.926] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[9.927] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[9.927] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 166.9, 86.0
+[9.984] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 4
+[10.038] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[10.192] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 1 (1) 'unnamed'
+[10.235] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 23 (1) 'Asteroid'
+[10.235] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 23 (1) 'Asteroid'
+[10.235] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (9) 'Bullet'
+[10.418] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 26
+[10.756] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[10.756] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[10.756] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 170.6, 81.3
+[10.758] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 26
+[10.876] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[10.979] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[10.980] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[10.980] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 173.7, 78.7
+[11.081] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[11.159] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[11.160] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[11.160] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 174.9, 77.7
+[11.256] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (10) 'Bullet'
+[11.284] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[11.354] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[11.355] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[11.355] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 175.4, 77.2
+[11.374] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 9 (3) 'Asteroid'
+[11.374] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 9 (3) 'Asteroid'
+[11.374] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 1 (2) 'Bullet'
+[11.459] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[11.481] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 23 (2) 'Bullet'
+[11.548] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[11.549] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[11.549] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 175.7, 77.0
+[11.647] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[11.692] [DEBUG] [AsteroidResponseSystem] (AsteroidResponseSystem.cpp:22 in update) Destroying 6 (2) 'Asteroid'
+[11.692] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 6 (2) 'Asteroid'
+[11.693] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (11) 'Bullet'
+[11.722] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[11.723] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[11.723] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 175.8, 76.9
+[11.832] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[11.902] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[11.903] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[11.903] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 175.9, 76.9
+[11.999] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[12.049] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 23 (3) 'Bullet'
+[12.061] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[12.223] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 7 (12) 'Bullet'
+[12.265] [DEBUG] [Ship] (ShipResponseSystem.cpp:43 in update) Ship hit! Lives remaining: 0
+[12.403] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 6 (3) 'Bullet'
+[12.636] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[12.991] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 44
+[12.991] [DEBUG] [Ship] (ShipControlSystem.cpp:59 in update) Fire emitted
+[12.991] [DEBUG] [Weapon] (WeaponSystem.cpp:16 in update) Bullet spawned at 163.5, 97.2
+[13.042] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 44
+[13.107] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[13.381] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[13.491] [DEBUG] [Cleanup] (CleanupSystem.cpp:27 in update) Destroying 6 (4) 'Bullet'
+[15.511] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 7
+[15.602] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 26
+[15.641] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 7
+[15.814] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 26
+[16.829] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 26
+[17.026] [DEBUG] [Input] (InputManager.cpp:53 in processEvent) KEY UP: 26
+[17.766] [DEBUG] [Input] (InputManager.cpp:30 in processEvent) KEY DOWN: 41
+[17.767] [INFO ] [Game] (Game.cpp:153 in shutdown) Shutting down
