@@ -10,16 +10,12 @@
 #include "../utilities/logger/Logger.hpp"
 
 double InputManager::getLastPressDuration(SDL_Scancode key) const {
-	// make sure in bounds
-	if (key >= SDL_SCANCODE_COUNT) return 0.0;
-	// make sure the key has been pressed at least once
-	if (keyboardState_[key].totalPressCount == 0) return 0.0;
-	// if the key is currently down, return the current time
-	if (keyboardState_[key].isDown) {
-		return (SDL_GetTicks() / 1000.0) - keyboardState_[key].lastPressTime;
+	auto it = keyboardState_.find(key);
+	if (it == keyboardState_.end() || it->second.totalPressCount == 0) return 0.0;
+	if (it->second.isDown) {
+		return (SDL_GetTicks() / 1000.0) - it->second.lastPressTime;
 	}
-	// finally just give the data
-	return keyboardState_[key].lastReleaseTime - keyboardState_[key].lastPressTime;
+	return it->second.lastReleaseTime - it->second.lastPressTime;
 }
 
 void InputManager::processEvent(const SDL_Event& event) {
@@ -69,26 +65,19 @@ void InputManager::processEvent(const SDL_Event& event) {
 }
 
 bool InputManager::isDown(SDL_Scancode key) const {
-	if (key < SDL_SCANCODE_COUNT) {
-		return keyboardState_[key].isDown;
-	}
-	return false;
+	auto it = keyboardState_.find(key);
+	return it != keyboardState_.end() && it->second.isDown;
 }
 
 bool InputManager::wasPressed(SDL_Scancode key) const {
-	if (key < SDL_SCANCODE_COUNT) {
-		return keyboardState_[key].wasPressed;
-	}
-	return false;
+	auto it = keyboardState_.find(key);
+	return it != keyboardState_.end() && it->second.wasPressed;
 }
 
 bool InputManager::wasReleased(SDL_Scancode key) const {
-	if (key >= 0 && key < SDL_SCANCODE_COUNT) {
-		return keyboardState_[key].wasReleased;
-	}
-	return false;
+	auto it = keyboardState_.find(key);
+	return it != keyboardState_.end() && it->second.wasReleased;
 }
-
 void InputManager::beginFrame() {
 	for (SDL_Scancode key : dirtyKeys_) {
 		keyboardState_[key].wasPressed = false;

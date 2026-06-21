@@ -1,6 +1,6 @@
 #pragma once
 
-#include <array>
+#include <unordered_map>
 #include <vector>
 
 #include <SDL3/SDL.h>
@@ -18,6 +18,6 @@ public:
 
 	double getLastPressDuration(SDL_Scancode key) const;
 private:
-	std::array<KeyState, SDL_SCANCODE_COUNT> keyboardState_{};
+	std::unordered_map<SDL_Scancode, KeyState> keyboardState_{};
 	std::vector<SDL_Scancode> dirtyKeys_{};
 };

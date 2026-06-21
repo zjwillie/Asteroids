@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "core/Game.hpp"
 
 #include "utilities/logger/Logger.hpp"
@@ -11,16 +13,17 @@
 
 
 int main() {
-    //Game game;
+    auto game = std::make_unique<Game>();
 
-    //game.initialize();
-    //game.run();
-    //game.shutdown();
+    game->initialize();
+    game->run();
+    game->shutdown();
 
     // Testing Tokenizer
-    Logger::initialize();
+    
+    //Logger::initialize();
 
-    DronTokenizer::test("src/utilities/parser/test.dron");
+    //DronTokenizer::test("src/utilities/parser/test.dron");
 
     return 0;
 }
