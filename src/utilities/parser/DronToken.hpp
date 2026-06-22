@@ -59,7 +59,7 @@ inline const std::vector<std::pair<TokenType, std::string_view>>& tokenTypeLUT()
 		{ TokenType::RIGHT_BRACE,    "RIGHT_BRACE" },
 		{ TokenType::COMMA,          "COMMA" },
 		{ TokenType::COMMENT,        "COMMENT" },
-		{ TokenType::COMMENT,        "INLINE_COMMENT" },
+		{ TokenType::INLINE_COMMENT, "INLINE_COMMENT" },
 		{ TokenType::BLANK,          "BLANK" },
 
 		// errors

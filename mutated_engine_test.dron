@@ -1,7 +1,7 @@
 # === BASIC TYPES ===
 [Basic]
-string_val = "hello world"
-int_val = 42
+string_val = "modified engine string"
+int_val = 999
 negative_int = -7
 double_val = 3.14
 negative_double = -0.5
@@ -18,10 +18,10 @@ leading_dot = 0.5
 negative_leading_dot = -0.25
 bare_minus = -
 bare_dot = .
-big_number = 999999
+big_number = 777777
 negative_big = -999999
 big_double = 123456.789
-negative_zero = -0
+negative_zero = 0
 negative_zero_double = -0.0
 
 # === KEY VARIATIONS ===

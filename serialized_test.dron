@@ -21,7 +21,7 @@ bare_dot = .
 big_number = 999999
 negative_big = -999999
 big_double = 123456.789
-negative_zero = -0
+negative_zero = 0
 negative_zero_double = -0.0
 
 # === KEY VARIATIONS ===

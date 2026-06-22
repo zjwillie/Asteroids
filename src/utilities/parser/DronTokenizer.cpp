@@ -1,55 +1,101 @@
 #include "pch.h"
-
-// DronTokenizer.cpp
-
+#include "DronTokenizer.hpp"
+#include "../logger/Logger.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <vector>
-
-#include "DronTokenizer.hpp"
-#include "../logger/Logger.hpp"
 
 namespace {
     std::string trim(const std::string& line) {
         const std::string whiteSpace = " \t\r\n\v\f";
-
         size_t start = line.find_first_not_of(whiteSpace);
         if (start == std::string::npos) return "";
-
         size_t end = line.find_last_not_of(whiteSpace);
-
-        size_t length = end - start + 1;
-        return line.substr(start, length);
+        return line.substr(start, end - start + 1);
     }
 
-    bool is_alpha(const char& c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-    }
+    bool is_alpha(const char& c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'); }
+    bool is_numeric(const char& c) { return (c >= '0' && c <= '9'); }
+    bool is_upper(const char& c) { return (c >= 'A' && c <= 'Z'); }
+    size_t get_decimal_position(const std::string& line) { return line.find('.'); }
 
-    bool is_numeric(const char& c) {
-        return (c >= '0' && c <= '9');
-    }
-
-    bool is_upper(const char& c) {
-        return (c >= 'A' && c <= 'Z');
-    }
-
-    size_t get_decimal_position(const std::string& line) {
-        return line.find('.');
-    }
-
-    void writeToFile(const std::string& content, const std::string& path)
-    {
+    void writeToFile(const std::string& content, const std::string& path) {
         std::ofstream file(path);
-        if (!file.is_open())
-        {
+        if (!file.is_open()) {
             std::cerr << "Failed to open file for writing: " << path << "\n";
             return;
         }
         file << content;
     }
+}
+
+std::vector<Token> DronTokenizer::tokenizeFile(const std::string& filepath) {
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        LOG_ERROR("DronTokenizer", "Failed to open file for tokenization: {}", filepath);
+        return {};
+    }
+    std::string content((std::istreambuf_iterator<char>(file)), {});
+    file.close();
+    return tokenize(content);
+}
+
+std::vector<Token> DronTokenizer::tokenize(std::string rawText) {
+    tokens_.clear();
+    lineNumber_ = 0;
+    inMultiline_ = false;
+    currentMultilineContent_.clear();
+    containerDepth_ = 0;
+
+    std::stringstream ss(rawText);
+    std::string line{};
+
+    while (std::getline(ss, line)) {
+        ++lineNumber_;
+        std::string trimmed = trim(line);
+
+        if (inMultiline_) {
+            handleMultiline(trimmed);
+            continue;
+        }
+
+        if (containerDepth_ > 0) {
+            if (trimmed.empty()) {
+                emitToken(TokenType::BLANK, line, lineNumber_);
+            }
+            else {
+                tokenizeValue(trimmed);
+            }
+            continue;
+        }
+
+        if (trimmed.empty()) {
+            emitToken(TokenType::BLANK, line, lineNumber_);
+            continue;
+        }
+
+        if (trimmed[0] == '#') {
+            emitToken(TokenType::COMMENT, line, lineNumber_);
+            continue;
+        }
+
+        if (trimmed[0] == '[') {
+            handleSectionHeader(trimmed);
+            continue;
+        }
+
+        if (trimmed == "\"\"\"") {
+            inMultiline_ = true;
+            currentMultilineContent_.clear();
+            continue;
+        }
+
+        handleKeyValue(trimmed);
+    }
+
+    emitToken(TokenType::END_OF_FILE, "", lineNumber_);
+    return tokens_;
 }
 
 void DronTokenizer::handleMultiline(const std::string& trimmed) {
@@ -87,42 +133,31 @@ void DronTokenizer::handleKeyValue(const std::string& trimmed) {
     emitToken(TokenType::KEY, std::move(key), lineNumber_);
     emitToken(TokenType::EQUALS, "=", lineNumber_);
 
-    if (value.empty()) {
-        // No value on this line - next line may be """ fence opener
-        return;
-    }
-
+    if (value.empty()) return;
     tokenizeValue(value);
 }
 
 void DronTokenizer::tokenizeValue(const std::string& value) {
     for (size_t position = 0; position < value.size(); ++position) {
+        if (value[position] == ' ') continue;
 
-        // skip whitespace
-        if (value[position] == ' ') {
-            continue;
-        }
-
-        // inline comment - grab it and emit a token so it will be it's own line now
         if (value[position] == '#') {
             std::string tokenString = value.substr(position);
             emitToken(TokenType::INLINE_COMMENT, std::move(tokenString), lineNumber_);
             return;
         }
 
-        // strings
         if (value[position] == '"') {
             if (value.substr(position, 3) == "\"\"\"") {
                 inMultiline_ = true;
                 return;
             }
-            ++position; // skip opening quote
+            ++position;
             std::string tokenString{};
             while (position < value.size() && value[position] != '"') {
                 tokenString += value[position];
                 ++position;
             }
-            // position is now on closing " (or past end if malformed)
             if (position >= value.size()) {
                 emitToken(TokenType::UNKNOWN_VALUE, std::move(tokenString), lineNumber_);
             }
@@ -132,45 +167,21 @@ void DronTokenizer::tokenizeValue(const std::string& value) {
             continue;
         }
 
-        // structural tokens
-        if (value[position] == '[') {
-            emitToken(TokenType::LEFT_BRACKET, "[", lineNumber_);
-            ++containerDepth_;
-            continue;
-        }
-        else if (value[position] == ']') {
-            emitToken(TokenType::RIGHT_BRACKET, "]", lineNumber_);
-            --containerDepth_;
-            continue;
-        }
-        else if (value[position] == '{') {
-            emitToken(TokenType::LEFT_BRACE, "{", lineNumber_);
-            ++containerDepth_;
-            continue;
-        }
-        else if (value[position] == '}') {
-            emitToken(TokenType::RIGHT_BRACE, "}", lineNumber_);
-            --containerDepth_;
-            continue;
-        }
-        else if (value[position] == ',') {
-            emitToken(TokenType::COMMA, ",", lineNumber_);
-            continue;
-        }
-        else if (value[position] == '=') {
-            emitToken(TokenType::EQUALS, "=", lineNumber_);
-            continue;
-        }
+        if (value[position] == '[') { emitToken(TokenType::LEFT_BRACKET, "[", lineNumber_); ++containerDepth_; continue; }
+        if (value[position] == ']') { emitToken(TokenType::RIGHT_BRACKET, "]", lineNumber_); --containerDepth_; continue; }
+        if (value[position] == '{') { emitToken(TokenType::LEFT_BRACE, "{", lineNumber_); ++containerDepth_; continue; }
+        if (value[position] == '}') { emitToken(TokenType::RIGHT_BRACE, "}", lineNumber_); --containerDepth_; continue; }
+        if (value[position] == ',') { emitToken(TokenType::COMMA, ",", lineNumber_); continue; }
+        if (value[position] == '=') { emitToken(TokenType::EQUALS, "=", lineNumber_); continue; }
 
-        // alpha - identifiers, booleans, or keys
-        else if (is_alpha(value[position])) {
+        if (is_alpha(value[position])) {
             if (is_upper(value[position])) {
                 std::string tokenString{};
                 while (position < value.size() && (is_upper(value[position]) || value[position] == '_' || is_numeric(value[position]))) {
                     tokenString += value[position];
                     ++position;
                 }
-                --position; // correct for for-loop increment
+                --position;
                 emitToken(TokenType::IDENTIFIER, std::move(tokenString), lineNumber_);
             }
             else {
@@ -179,7 +190,7 @@ void DronTokenizer::tokenizeValue(const std::string& value) {
                     word += value[position];
                     ++position;
                 }
-                --position; // correct for for-loop increment
+                --position;
                 if (word == "true" || word == "false") {
                     emitToken(TokenType::BOOLEAN, std::move(word), lineNumber_);
                 }
@@ -190,31 +201,24 @@ void DronTokenizer::tokenizeValue(const std::string& value) {
             continue;
         }
 
-        // numbers
-        else if (is_numeric(value[position]) || value[position] == '-' || value[position] == '.') {
+        if (is_numeric(value[position]) || value[position] == '-' || value[position] == '.') {
             std::string tokenNumeric{};
             while (position < value.size() && (is_numeric(value[position]) || value[position] == '-' || value[position] == '.')) {
                 tokenNumeric += value[position];
                 ++position;
             }
-            --position; // correct for for-loop increment
+            --position;
 
-            // validate
             if (tokenNumeric == "-" || tokenNumeric == ".") {
                 LOG_WARN("DronTokenizer", "Line {}: malformed number '{}' - emitting UNKNOWN_VALUE", lineNumber_, tokenNumeric);
                 emitToken(TokenType::UNKNOWN_VALUE, std::move(tokenNumeric), lineNumber_);
                 continue;
             }
 
-            // normalize -.4 to -0.4
             if (tokenNumeric.size() >= 2 && tokenNumeric[0] == '-' && tokenNumeric[1] == '.') {
-                LOG_WARN("DronTokenizer", "Line {}: normalizing '{}' to '-0{}'", lineNumber_, tokenNumeric, tokenNumeric.substr(1));
                 tokenNumeric = "-0" + tokenNumeric.substr(1);
             }
-
-            // normalize .4 to 0.4
             if (tokenNumeric[0] == '.') {
-                LOG_WARN("DronTokenizer", "Line {}: normalizing '{}' to '0{}'", lineNumber_, tokenNumeric, tokenNumeric);
                 tokenNumeric = "0" + tokenNumeric;
             }
 
@@ -227,64 +231,8 @@ void DronTokenizer::tokenizeValue(const std::string& value) {
             continue;
         }
 
-        // truly unknown
-        else {
-            emitToken(TokenType::UNKNOWN_VALUE, std::string(1, value[position]), lineNumber_);
-        }
+        emitToken(TokenType::UNKNOWN_VALUE, std::string(1, value[position]), lineNumber_);
     }
-}
-
-std::vector<Token> DronTokenizer::tokenize(std::string rawText) {
-    tokens_.clear();
-    lineNumber_ = 0;
-    inMultiline_ = false;
-    currentMultilineContent_.clear();
-    containerDepth_ = 0;
-
-    std::stringstream ss(rawText);
-    std::string line{};
-
-    while (std::getline(ss, line)) {
-        ++lineNumber_;
-        std::string trimmed = trim(line);
-
-        if (inMultiline_) {
-            handleMultiline(trimmed);
-            continue;
-        }
-
-        if (trimmed.empty()) {
-            emitToken(TokenType::BLANK, line, lineNumber_);
-            continue;
-        }
-
-        if (trimmed[0] == '#') {
-            emitToken(TokenType::COMMENT, line, lineNumber_);
-            continue;
-        }
-
-        if (trimmed[0] == '[') {
-            handleSectionHeader(trimmed);
-            continue;
-        }
-
-        // multiline fence opener on its own line
-        if (trimmed == "\"\"\"") {
-            inMultiline_ = true;
-            currentMultilineContent_.clear();
-            continue;
-        }
-
-        if (containerDepth_ > 0) {
-            tokenizeValue(trimmed);
-            continue;
-        }
-
-        handleKeyValue(trimmed);
-    }
-
-    emitToken(TokenType::END_OF_FILE, "", lineNumber_);
-    return tokens_;
 }
 
 void DronTokenizer::emitToken(TokenType type, std::string value, uint32_t lineNumber) {
@@ -298,23 +246,11 @@ std::string DronTokenizer::untokenize() {
     for (size_t i = 0; i < tokens_.size(); ++i) {
         const auto& token = tokens_[i];
 
-        if (token.type == TokenType::LEFT_BRACKET || token.type == TokenType::LEFT_BRACE)  ++depth;
         if (token.type == TokenType::RIGHT_BRACKET || token.type == TokenType::RIGHT_BRACE) --depth;
 
-        untokenized_text_ += untokenizeValue(token);
+        bool isOpening = (token.type == TokenType::LEFT_BRACKET || token.type == TokenType::LEFT_BRACE);
+        bool isClosing = (token.type == TokenType::RIGHT_BRACKET || token.type == TokenType::RIGHT_BRACE);
 
-        // spacing
-        if (token.type == TokenType::EQUALS) {
-            untokenized_text_ += " ";
-        }
-        else if (token.type == TokenType::KEY && i + 1 < tokens_.size() && tokens_[i + 1].type == TokenType::EQUALS) {
-            untokenized_text_ += " ";
-        }
-        else if (token.type == TokenType::COMMA) {
-            untokenized_text_ += " ";
-        }
-
-        // newline after value or closing container at depth 0
         bool isValue = (token.type == TokenType::STRING ||
             token.type == TokenType::MULTILINE_STRING ||
             token.type == TokenType::INTEGER ||
@@ -324,26 +260,33 @@ std::string DronTokenizer::untokenize() {
             token.type == TokenType::UNKNOWN ||
             token.type == TokenType::UNKNOWN_VALUE);
 
-        bool isClosing = (token.type == TokenType::RIGHT_BRACKET ||
-            token.type == TokenType::RIGHT_BRACE);
+        if (isClosing) untokenized_text_ += std::string(depth * 4, ' ');
 
-        if ((isValue || isClosing) && depth == 0) {
-            bool nextIsInlineComment = (i + 1 < tokens_.size() &&
-                tokens_[i + 1].type == TokenType::INLINE_COMMENT);
-            if (!nextIsInlineComment)
-                untokenized_text_ += "\n";
+        untokenized_text_ += untokenizeValue(token);
+
+        if (isOpening) ++depth;
+
+        if (token.type == TokenType::EQUALS)
+            untokenized_text_ += " ";
+        else if (token.type == TokenType::KEY && i + 1 < tokens_.size() && tokens_[i + 1].type == TokenType::EQUALS)
+            untokenized_text_ += " ";
+        else if (token.type == TokenType::COMMA)
+            untokenized_text_ += "\n" + std::string(depth * 4, ' ');
+
+        if (isOpening) untokenized_text_ += "\n" + std::string(depth * 4, ' ');
+
+        if (isValue || isClosing) {
+            bool nextIsTrailing = (i + 1 < tokens_.size() &&
+                (tokens_[i + 1].type == TokenType::COMMA || tokens_[i + 1].type == TokenType::INLINE_COMMENT));
+            if (!nextIsTrailing) untokenized_text_ += "\n";
         }
 
-        // trivia always newlines
-        if (token.type == TokenType::INLINE_COMMENT) {
-            untokenized_text_ += " " + token.value + "\n";
-        }
-        else if (token.type == TokenType::BLANK) {
-            untokenized_text_ += token.value + "\n";
-        }
+        if (token.type == TokenType::INLINE_COMMENT)
+            untokenized_text_ += " " + token.value + "\n" + std::string(depth * 4, ' ');
+        else if (token.type == TokenType::BLANK)
+            untokenized_text_ += "\n";
         else if (token.type == TokenType::SECTION_HEADER || token.type == TokenType::COMMENT) {
-            if (untokenized_text_.empty() || untokenized_text_.back() != '\n')
-                untokenized_text_ += "\n";
+            if (untokenized_text_.empty() || untokenized_text_.back() != '\n') untokenized_text_ += "\n";
         }
     }
 
@@ -352,23 +295,15 @@ std::string DronTokenizer::untokenize() {
 
 std::string DronTokenizer::untokenizeValue(Token token) {
     switch (token.type) {
-    case TokenType::STRING:
-        return "\"" + token.value + "\"";
-
+    case TokenType::STRING: return "\"" + token.value + "\"";
     case TokenType::LEFT_BRACKET:  return "[";
     case TokenType::RIGHT_BRACKET: return "]";
     case TokenType::LEFT_BRACE:    return "{";
     case TokenType::RIGHT_BRACE:   return "}";
     case TokenType::COMMA:         return ",";
     case TokenType::EQUALS:        return "=";
-
-    case TokenType::MULTILINE_STRING:
-        return "\"\"\"\n" + token.value + "\n\"\"\"";
-
-    case TokenType::SECTION_HEADER:
-        return "[" + token.value + "]";
-
-    // Identifiers, Keys, Booleans, Numbers, and Errors print their raw value
+    case TokenType::MULTILINE_STRING: return "\"\"\"\n" + token.value + "\n\"\"\"";
+    case TokenType::SECTION_HEADER: return "[" + token.value + "]";
     case TokenType::IDENTIFIER:
     case TokenType::KEY:
     case TokenType::BOOLEAN:
@@ -379,53 +314,28 @@ std::string DronTokenizer::untokenizeValue(Token token) {
     case TokenType::COMMENT:
     case TokenType::BLANK:
         return token.value;
-
     case TokenType::END_OF_FILE:
     default:
         return "";
     }
 }
 
-// ************************* TESTING ****************
-
 void DronTokenizer::test(const std::string& filepath) {
-    std::ifstream file(filepath);
-    if (!file.is_open()) {
-        LOG_ERROR("DronTokenizer", "Failed to open: {}", filepath);
-        return;
-    }
-    std::string content((std::istreambuf_iterator<char>(file)), {});
-    file.close();
-
-    // === PASS 1 ===
     DronTokenizer t1;
-    auto tokens1 = t1.tokenize(content);
+    auto tokens1 = t1.tokenizeFile(filepath);
+    std::string current = t1.untokenize();
     LOG_DEBUG("DronTokenizer", "=== PASS 1: {} tokens ===", tokens1.size());
-    for (const auto& tok : tokens1)
-        LOG_DEBUG("DronTokenizer", "Token {:4} | Line {:3} | Type {:<16} | Value: '{}'",
-            tok.index, tok.lineNumber, tokenTypeToString(tok.type), tok.value);
 
-    // === UNTOKENIZE ===
-    std::string rebuilt = t1.untokenize();
-    LOG_DEBUG("DronTokenizer", "=== UNTOKENIZED TEXT ===");
-    std::stringstream ss(rebuilt);
-    std::string line;
-    uint32_t lineNum = 0;
-    while (std::getline(ss, line))
-        LOG_DEBUG("DronTokenizer", "{:4} | {}", ++lineNum, line);
+    size_t prevCount = tokens1.size();
+    for (int i = 2; i <= 11; ++i) {
+        DronTokenizer t;
+        auto tokens = t.tokenize(current);
+        current = t.untokenize();
+        bool match = tokens.size() == prevCount;
+        LOG_DEBUG("DronTokenizer", "=== PASS {:2}: {} tokens | {} ===", i, tokens.size(), match ? "MATCH" : "MISMATCH");
+        prevCount = tokens.size();
+    }
 
-    // === PASS 2 ===
-    DronTokenizer t2;
-    auto tokens2 = t2.tokenize(rebuilt);
-    LOG_DEBUG("DronTokenizer", "=== PASS 2: {} tokens ===", tokens2.size());
-    for (const auto& tok : tokens2)
-        LOG_DEBUG("DronTokenizer", "Token {:4} | Line {:3} | Type {:<16} | Value: '{}'",
-            tok.index, tok.lineNumber, tokenTypeToString(tok.type), tok.value);
-
-    // === COMPARE ===
-    LOG_DEBUG("DronTokenizer", "=== PASS 1: {} tokens | PASS 2: {} tokens | {} ===",
-        tokens1.size(), tokens2.size(),
-        tokens1.size() == tokens2.size() ? "MATCH" : "MISMATCH");
-
-    writeToFile(t2.untokenize(), "untokenized_test.dron");
+    writeToFile(current, "untokenized_test.dron");
+    LOG_DEBUG("DronTokenizer", "=== Written to untokenized_test.dron ===");
 }

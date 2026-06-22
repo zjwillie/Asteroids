@@ -1,5 +1,3 @@
-// DronNode.hpp
-
 #pragma once
 
 #include <cstdint>
@@ -15,10 +13,16 @@ using DronMap = std::map<std::string, DronNode>;
 
 struct DronNode {
     std::variant<int32_t,
-    double, bool,
-    std::string,
-    DronList,
-    DronMap> value;
+        double, bool,
+        std::string,
+        DronList,
+        DronMap> value;
+
+    template<typename T>
+    const T& as() const { return std::get<T>(value); }
+
+    template<typename T>
+    T& as() { return std::get<T>(value); }
 };
 
 using DronDocument = DronMap;

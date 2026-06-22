@@ -1,33 +1,30 @@
 #include "pch.h"
-
 #include <memory>
+#include <fstream>
+#include <string>
+#include <iostream>
 
 #include "core/Game.hpp"
-
 #include "utilities/logger/Logger.hpp"
 #include "utilities/parser/DronTokenizer.hpp"
+#include "utilities/parser/DronParser.hpp" 
 
 //*******************************************
 //*******************************************
-//********         MAIN         *************
+//******** MAIN         *************
 //*******************************************
 //*******************************************
-
-
 int main() {
-    auto game = std::make_unique<Game>();
-
-    //game->initialize();
-    //game->run();
-    //game->shutdown();
-
-
-
-    //Testing Tokenizer
-    
     Logger::initialize();
 
-    DronTokenizer::test("src/utilities/parser/test.dron");
+    LOG_INFO("Main", "Initializing Game....");
+    auto game = std::make_unique<Game>();
+
+    // game->initialize();
+    // game->run();
+    // game->shutdown();
+
+    DronParser::testEntityRoundTrip("src/utilities/parser/asteroid_test.dron");
 
     return 0;
 }
