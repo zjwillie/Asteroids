@@ -1,0 +1,13 @@
+[Level]
+number = 1
+name = "Sector 1"
+
+[Ship]
+spawn_x = 160
+spawn_y = 90
+
+[Asteroids]
+count = 3
+large = 2
+medium = 1
+small = 0

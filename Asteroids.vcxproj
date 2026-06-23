@@ -82,7 +82,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\utilities\logger;$(ProjectDir)..\..\Dron;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +105,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\utilities\logger;$(ProjectDir)..\..\Dron;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +126,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\utilities\logger;$(ProjectDir)..\..\Dron;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,7 +149,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\utilities\logger;$(ProjectDir)..\..\Dron;$(ProjectDir)vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,11 +184,19 @@
     <ClCompile Include="src\input\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\platform\SDLManager.cpp" />
+    <ClCompile Include="src\scenes\SceneManger.cpp" />
     <ClCompile Include="src\utilities\logger\ConsoleSink.cpp" />
     <ClCompile Include="src\utilities\logger\FileSink.cpp" />
     <ClCompile Include="src\utilities\logger\Logger.cpp" />
-    <ClCompile Include="src\utilities\parser\DronParser.cpp" />
-    <ClCompile Include="src\utilities\parser\DronTokenizer.cpp" />
+    <ClCompile Include="..\..\Dron\DronConfig.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Dron\DronParser.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Dron\DronTokenizer.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -230,20 +238,19 @@
     <ClInclude Include="src\math\Vec2.hpp" />
     <ClInclude Include="src\core\WorldContext.hpp" />
     <ClInclude Include="src\platform\SDLManager.hpp" />
+    <ClInclude Include="src\scenes\SceneManager.hpp" />
     <ClInclude Include="src\utilities\logger\ConsoleSink.hpp" />
     <ClInclude Include="src\utilities\logger\FileSink.hpp" />
     <ClInclude Include="src\utilities\logger\LogEntry.hpp" />
     <ClInclude Include="src\utilities\logger\Logger.hpp" />
     <ClInclude Include="src\utilities\logger\LogLevel.hpp" />
     <ClInclude Include="src\utilities\logger\LogSink.hpp" />
-    <ClInclude Include="src\utilities\parser\DronNode.hpp" />
-    <ClInclude Include="src\utilities\parser\DronParser.hpp" />
-    <ClInclude Include="src\utilities\parser\DronToken.hpp" />
-    <ClInclude Include="src\utilities\parser\DronTokenizer.hpp" />
+    <ClInclude Include="..\..\Dron\DronConfig.hpp" />
+    <ClInclude Include="..\..\Dron\DronNode.hpp" />
+    <ClInclude Include="..\..\Dron\DronParser.hpp" />
+    <ClInclude Include="..\..\Dron\DronToken.hpp" />
+    <ClInclude Include="..\..\Dron\DronTokenizer.hpp" />
     <ClInclude Include="src\utilities\random\Random.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\utilities\parser\test.dron" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

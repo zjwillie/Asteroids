@@ -84,10 +84,19 @@
     <ClCompile Include="src\ecs\systems\ShipResponseSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utilities\parser\DronParser.cpp">
+    <ClCompile Include="..\..\Dron\DronParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utilities\parser\DronTokenizer.cpp">
+    <ClCompile Include="..\..\Dron\DronTokenizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dron\DronConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\SceneManger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,20 +233,26 @@
     <ClInclude Include="src\ecs\systems\ShipResponseSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\parser\DronNode.hpp">
+    <ClInclude Include="..\..\Dron\DronNode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\parser\DronParser.hpp">
+    <ClInclude Include="..\..\Dron\DronParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\parser\DronToken.hpp">
+    <ClInclude Include="..\..\Dron\DronToken.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\parser\DronTokenizer.hpp">
+    <ClInclude Include="..\..\Dron\DronTokenizer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\utilities\parser\test.dron" />
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Dron\DronConfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\SceneManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

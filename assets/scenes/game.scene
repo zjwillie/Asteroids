@@ -1,0 +1,14 @@
+[Scene]
+name = "game"
+
+[Level]
+file = "levels/level_1.dron"
+
+[Transitions]
+player_died =     { to = "game_over",  type = "scene_change" }
+level_complete =  { to = "game",       type = "level_swap",   next = "levels/level_2.dron" }
+level_2_complete = { to = "game",      type = "level_swap",   next = "levels/level_3.dron" }
+level_3_complete = { to = "game",      type = "level_swap",   next = "levels/level_4.dron" }
+level_4_complete = { to = "game",      type = "level_swap",   next = "levels/level_5.dron" }
+level_5_complete = { to = "win",       type = "scene_change" }
+pause =           { to = "game",       type = "overlay" }

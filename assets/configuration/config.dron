@@ -1,0 +1,50 @@
+# ==============================================================================
+# Asteroids Engine Boot Configuration
+# ==============================================================================
+
+[Engine]
+version = "1.0.0"
+target_fps = 144
+vsync = true
+fixed_time_step = 0.0166667             # ~60Hz physics ticks
+log_level = LOG_DEBUG                  # LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR
+developer_mode = true
+
+[Window]
+title = "Asteroids Engine"
+width = 1920
+height = 1080
+fullscreen = false
+borderless = false
+
+[Graphics]
+msaa_samples = 4
+texture_filtering = "ANISOTROPIC_4X"   # NEAREST, LINEAR, ANISOTROPIC_4X
+sprite_batch_size = 2048
+clear_color_r = 0.05
+clear_color_g = 0.05
+clear_color_b = 0.07
+
+[Audio]
+master_volume = 0.8
+sfx_volume = 1.0
+music_volume = 0.5
+channels = 32
+mixing_rate = 44100                    # Hz standard audio output
+
+[Input]
+# Default key bindings mapping engine actions to SDL scancodes
+key_move_up = "SDL_SCANCODE_W"
+key_move_down = "SDL_SCANCODE_S"
+key_move_left = "SDL_SCANCODE_A"
+key_move_right = "SDL_SCANCODE_D"
+key_shoot = "SDL_SCANCODE_SPACE"
+key_pause = "SDL_SCANCODE_ESCAPE"
+gamepad_deadzone = 8000                # Analog stick threshold
+
+[Gameplay]
+player_lives = 3
+starting_score = 0
+invulnerability_time = 3.0             # Seconds after respawn
+respawn_delay = 1.5
+asteroid_spawn_rate = 5.0              # Initial delay between waves
