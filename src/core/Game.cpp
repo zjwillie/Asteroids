@@ -50,8 +50,6 @@ void Game::initialize() {
 	}
 
 	sceneManager_.loadScene("assets/scenes/game.scene");
-	std::string sceneName = sceneManager_.sceneDron["Scene"]["name"];
-	LOG_FATAL("Game", "Loading the scene: {}", sceneName);
 
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
