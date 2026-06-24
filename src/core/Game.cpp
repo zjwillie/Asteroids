@@ -45,12 +45,15 @@ void Game::initialize() {
 		// fuck me maybe we should have setting running_ = true here after all, nice way to bail yeah?
 		// so I changed the defalut to running_ = true until proven otherwise
 		running_ = false;
-		// logger soon
+		LOG_INFO("Game", "WorldContext is validated.");
 		return;
 	}
 
 	sceneManager_.loadScene("assets/scenes/game.scene");
+	sceneManager_.debugPrint();
 
+	// will eventually need to use the scene to decide what is running
+	// for asteroids though.. later when refining
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());

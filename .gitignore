@@ -4,3 +4,12 @@ Debug/
 Release/
 *.user
 vcpkg_installed/
+
+# Runtime log
+game.log
+
+# Generated DRON round-trip / tokenizer test artifacts
+mutated_engine_test.dron
+serialized_test.dron
+asteroid_test_round_trip.dron
+untokenized_test.dron

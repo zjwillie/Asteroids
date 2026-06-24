@@ -43,4 +43,4 @@ values = [
 
 [Lifetime]
 remaining = 0.0
-isDead = false
+is_dead = false

@@ -254,6 +254,9 @@
     <ClInclude Include="src\scenes\SceneManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\events\SpawnEntityEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\scenes\game.scene" />
@@ -263,5 +266,6 @@
     <None Include="assets\scenes\level_4.dron" />
     <None Include="assets\scenes\level_5.dron" />
     <None Include="assets\entities\asteroid.ent" />
+    <None Include="assets\entities\player.ent" />
   </ItemGroup>
 </Project>

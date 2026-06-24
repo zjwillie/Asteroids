@@ -19,7 +19,7 @@ borderless = false
 
 [Graphics]
 msaa_samples = 4
-texture_filtering = "ANISOTROPIC_4X"   # NEAREST, LINEAR, ANISOTROPIC_4X
+texture_filtering = ANISOTROPIC_4X     # NEAREST, LINEAR, ANISOTROPIC_4X
 sprite_batch_size = 2048
 clear_color_r = 0.05
 clear_color_g = 0.05
@@ -34,12 +34,12 @@ mixing_rate = 44100                    # Hz standard audio output
 
 [Input]
 # Default key bindings mapping engine actions to SDL scancodes
-key_move_up = "SDL_SCANCODE_W"
-key_move_down = "SDL_SCANCODE_S"
-key_move_left = "SDL_SCANCODE_A"
-key_move_right = "SDL_SCANCODE_D"
-key_shoot = "SDL_SCANCODE_SPACE"
-key_pause = "SDL_SCANCODE_ESCAPE"
+key_move_up = SDL_SCANCODE_W
+key_move_down = SDL_SCANCODE_S
+key_move_left = SDL_SCANCODE_A
+key_move_right = SDL_SCANCODE_D
+key_shoot = SDL_SCANCODE_SPACE
+key_pause = SDL_SCANCODE_ESCAPE
 gamepad_deadzone = 8000                # Analog stick threshold
 
 [Gameplay]

@@ -200,6 +200,7 @@
     <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\events\SpawnEntityEvent.hpp" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\ecs\components\Asteroid.hpp" />
     <ClInclude Include="src\ecs\components\Bullet.hpp" />
@@ -254,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\entities\asteroid.ent" />
+    <None Include="assets\entities\player.ent" />
     <None Include="assets\scenes\game.scene" />
     <None Include="assets\scenes\level_1.dron" />
     <None Include="assets\scenes\level_2.dron" />

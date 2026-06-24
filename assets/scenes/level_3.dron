@@ -2,12 +2,14 @@
 number = 3
 name = "Sector 3"
 
-[Ship]
-spawn_x = 160
-spawn_y = 90
+[Entities]
+player_ship = "assets/entities/player.ent"
+asteroid = "assets/entities/asteroid.ent"
 
-[Asteroids]
-count = 7
-large = 3
-medium = 2
-small = 2
+[Ship]
+spawn = [160.0, 90.0]
+
+[Asteroid]
+number = 7
+distribution = [[0.0, 0.0, 320.0, 180.0]]
+exclusion = [[140.0, 70.0, 40.0, 40.0]]

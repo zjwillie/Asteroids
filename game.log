@@ -1,4 +1,0 @@
-[0.001] [INFO ] [Game] (Game.cpp:29 in initialize) Logger online
-[0.188] [INFO ] [Game] (SceneManger.cpp:10 in loadScene) Loading the scene : game
-[1.580] [DEBUG] [Input] (InputManager.cpp:32 in processEvent) KEY DOWN: 41
-[1.581] [INFO ] [Game] (Game.cpp:158 in shutdown) Shutting down

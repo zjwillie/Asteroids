@@ -1,17 +1,14 @@
-# player.ent — player archetype defaults
-# Section header maps to a component. Spawn flow overrides position
-# from the level [Ship] block; everything else is the default "a player."
-
-[Name]
-name = "Player"
+[Meta]
+type = PLAYER
 
 [Transform]
-position = { x = 0.0, y = 0.0 }   # overridden by level [Ship] spawn_x / spawn_y
+x = 0.0
+y = 0.0
 rotation = 0.0
 
 [Velocity]
-linearVelocity = { x = 0.0, y = 0.0 }
-angularVelocity = 0.0
+dx = 0.0
+dy = 0.0
 
 [Sprite]
 width = 10
@@ -21,11 +18,11 @@ green = 100
 blue = 100
 
 [Collider]
-circle = { radius = 5.0 }
+radius = 5.0
 
 [PlayerControlled]
 currently_controllable = true
 lives = 3
 score = 0
-isInvulnerable = false
-invulnerableTimer = 0.0
+is_invulnerable = false
+invulnerable_timer = 0.0

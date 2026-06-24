@@ -1,45 +1,31 @@
 [Scene]
 name = "game"
 
+[Entities]
+player = "assets/entities/player.ent"
+
+[Systems]
+systems = [
+    SHIP_CONTROL,
+    MOVEMENT,
+    WARP,
+    LIFETIME,
+    COLLISION,
+    ASTEROID,
+    SHIP_RESPONSE,
+    WEAPON,
+    CLEANUP,
+    RENDER
+]
+
 [Level]
-file = "levels/level_1.dron"
+file = "assets/scenes/level_1.dron"
 
 [Transitions]
-player_died =     { 
-	to = "game_over",
-	type = "scene_change"
-	}
-
-level_complete =  { 
-	to = "game",       
-	type = "level_swap",   
-	next = "levels/level_2.dron" 
-	}
-
-level_2_complete = { 
-	to = "game",      
-	type = "level_swap",   
-	next = "levels/level_3.dron" 
-	}
-
-level_3_complete = { 
-	to = "game",      
-	type = "level_swap",   
-	next = "levels/level_4.dron" 
-	}
-
-level_4_complete = { 
-	to = "game",      
-	type = "level_swap",   
-	next = "levels/level_5.dron" 
-	}
-
-level_5_complete = { 
-	to = "win",       
-	type = "scene_change" 
-	}
-
-pause = { 
-	to = "game",       
-	type = "overlay" 
-	}
+player_died = { to = "game_over",  type = SCENE_CHANGE }
+level_complete =   { to = "game",  type = LEVEL_SWAP,  next = "assets/scenes/level_2.dron" }
+level_2_complete = { to = "game",  type = LEVEL_SWAP,  next = "assets/scenes/level_3.dron" }
+level_3_complete = { to = "game",  type = LEVEL_SWAP,  next = "assets/scenes/level_4.dron" }
+level_4_complete = { to = "game",  type = LEVEL_SWAP,  next = "assets/scenes/level_5.dron" }
+level_5_complete = { to = "win",   type = SCENE_CHANGE }
+pause =            { to = "game",  type = OVERLAY }
