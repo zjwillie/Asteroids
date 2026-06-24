@@ -255,4 +255,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\scenes\game.scene" />
+    <None Include="assets\scenes\level_1.dron" />
+    <None Include="assets\scenes\level_2.dron" />
+    <None Include="assets\scenes\level_3.dron" />
+    <None Include="assets\scenes\level_4.dron" />
+    <None Include="assets\scenes\level_5.dron" />
+    <None Include="assets\entities\asteroid.ent" />
+  </ItemGroup>
 </Project>

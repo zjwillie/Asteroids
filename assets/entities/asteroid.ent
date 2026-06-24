@@ -1,0 +1,46 @@
+[Meta]
+type = ASTEROID
+
+[Transform]
+x = 0.0
+y = 0.0
+rotation = 0.0
+
+[Velocity]
+dx = 0.0
+dy = 0.0
+
+[Physics]
+mass = 1.0
+drag = 0.0
+restitution = 1.0
+
+[Sprite]
+sprites = [
+    { name = LARGE,  path = "assets/images/asteroid_large.png",  width = 32.0, height = 32.0 },
+    { name = MEDIUM, path = "assets/images/asteroid_medium.png", width = 16.0, height = 16.0 },
+    { name = SMALL,  path = "assets/images/asteroid_small.png",  width = 8.0,  height = 8.0  }
+]
+
+[Collider]
+hitboxes = [
+    { name = LARGE,  x = 0.0, y = 0.0, w = 30.0, h = 30.0 },
+    { name = MEDIUM, x = 0.0, y = 0.0, w = 14.0, h = 14.0 },
+    { name = SMALL,  x = 0.0, y = 0.0, w = 6.0,  h = 6.0  }
+]
+
+[Asteroid]
+splits = [
+    { name = LARGE,  into = MEDIUM, count = 2 },
+    { name = MEDIUM, into = SMALL,  count = 2 },
+    { name = SMALL,  into = NONE,   count = 0 }
+]
+values = [
+    { name = LARGE,  points = 20 },
+    { name = MEDIUM, points = 50 },
+    { name = SMALL,  points = 100 }
+]
+
+[Lifetime]
+remaining = 0.0
+isDead = false

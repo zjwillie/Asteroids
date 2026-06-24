@@ -9,7 +9,8 @@ bool WorldContext::isValid() const {
 		&& SDLManagerPtr_ != nullptr
 		&& systemManagerPtr_ != nullptr
 		&& inputManagerPtr_ != nullptr
-		&& eventManagerPtr_ != nullptr;
+		&& eventManagerPtr_ != nullptr
+		&& sceneManagerPtr_ != nullptr;
 }
 
 EntityManager& WorldContext::getEntityManager() {
@@ -35,4 +36,9 @@ InputManager& WorldContext::getInputManager() {
 EventManager& WorldContext::getEventManager() {
 	assert(eventManagerPtr_ && "EventManager not initialized!");
 	return *eventManagerPtr_;
+}
+
+SceneManager& WorldContext::getSceneManager() {
+	assert(sceneManagerPtr_ && "SceneManager not initialized!");
+	return *sceneManagerPtr_;
 }

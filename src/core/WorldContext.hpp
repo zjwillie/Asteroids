@@ -9,6 +9,7 @@ class SDLManager;
 class SystemManager;
 class InputManager;
 class EventManager;
+class SceneManager;
 
 class WorldContext {
 public:
@@ -33,12 +34,17 @@ public:
 		eventManagerPtr_ = eventManager;
 	}
 
+	void setSceneManager(SceneManager* sceneManager) {
+		sceneManagerPtr_ = sceneManager;
+	}
+
 	// asserting reference acessor for each
 	EntityManager& getEntityManager();
 	SDLManager& getSDLManager();
 	SystemManager& getSystemManager();
 	InputManager& getInputManager();
 	EventManager& getEventManager();
+	SceneManager& getSceneManager();
 
 	// isValid() to check nothing is null
 	bool isValid() const;
@@ -50,4 +56,5 @@ private:
 	SystemManager* systemManagerPtr_ = nullptr;
 	InputManager* inputManagerPtr_ = nullptr;
 	EventManager* eventManagerPtr_ = nullptr;
+	SceneManager* sceneManagerPtr_ = nullptr;
 };

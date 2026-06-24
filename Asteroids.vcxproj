@@ -252,6 +252,15 @@
     <ClInclude Include="..\..\Dron\DronTokenizer.hpp" />
     <ClInclude Include="src\utilities\random\Random.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\entities\asteroid.ent" />
+    <None Include="assets\scenes\game.scene" />
+    <None Include="assets\scenes\level_1.dron" />
+    <None Include="assets\scenes\level_2.dron" />
+    <None Include="assets\scenes\level_3.dron" />
+    <None Include="assets\scenes\level_4.dron" />
+    <None Include="assets\scenes\level_5.dron" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

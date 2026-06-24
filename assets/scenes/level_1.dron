@@ -2,12 +2,24 @@
 number = 1
 name = "Sector 1"
 
-[Ship]
-spawn_x = 160
-spawn_y = 90
+[Entities]
+playerShip = "/assets/player.ent"
+asteroid = "/assets/asteroid.ent"
 
-[Asteroids]
-count = 3
-large = 2
-medium = 1
-small = 0
+[playerShip]
+playerControlled = {
+	currently_controllable = true,
+	lives = 3,
+	score = 0,
+	isInvulnerable = false,
+	float invulnerableTime = 0.0
+}
+transform = {
+	position = {160.0, 90.0},
+	rotation = 0.0
+}
+
+[asteroid]
+number = 3
+distribution = {{0.0, 0.0, 320.0, 180.0}}
+exclusion = {{140.0, 70.0, 40.0, 40.0}}

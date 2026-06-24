@@ -39,6 +39,7 @@ void Game::initialize() {
 	worldContext_.setSystemManager(&systemManager_);
 	worldContext_.setInputManager(&inputManager_);
 	worldContext_.setEventManager(&eventManager_);
+	worldContext_.setSceneManager(&sceneManager_);
 
 	if (!worldContext_.isValid()) {
 		// fuck me maybe we should have setting running_ = true here after all, nice way to bail yeah?
@@ -47,6 +48,10 @@ void Game::initialize() {
 		// logger soon
 		return;
 	}
+
+	sceneManager_.loadScene("assets/scenes/game.scene");
+	std::string sceneName = sceneManager_.sceneDron["Scene"]["name"];
+	LOG_FATAL("Game", "Loading the scene: {}", sceneName);
 
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());

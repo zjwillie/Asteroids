@@ -7,4 +7,6 @@
 class SceneManager {
 public:
 	void loadScene(std::string sceneLocation);
+	DronReader sceneDron{};
+	std::string currentScene{};
 };

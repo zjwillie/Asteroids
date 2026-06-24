@@ -7,6 +7,7 @@
 #include "../ecs/systems/SystemManager.hpp"
 #include "../input/InputManager.hpp"
 #include "../events/EventManager.hpp"
+#include "../scenes/SceneManager.hpp"
 
 #include "WorldContext.hpp"
 
@@ -27,6 +28,7 @@ private:
 	SystemManager systemManager_;
 	InputManager inputManager_;
 	EventManager eventManager_;
+	SceneManager sceneManager_;
 
 	bool running_ = true;
 
