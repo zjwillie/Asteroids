@@ -3,7 +3,7 @@
 #include <SDL3/SDL.h>
 
 #include "SDLManager.hpp"
-#include "../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 float SDLManager::getDeltaTime() {
     uint64_t currentCounter = SDL_GetPerformanceCounter();

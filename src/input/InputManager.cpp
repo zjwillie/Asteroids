@@ -9,7 +9,7 @@
 
 #include "InputManager.hpp"
 
-#include "../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 double InputManager::getLastPressDuration(SDL_Scancode key) const {
 	auto it = keyboardState_.find(key);

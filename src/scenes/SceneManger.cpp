@@ -3,7 +3,7 @@
 #include "SceneManager.hpp"
 
 #include "../events/SpawnEntityEvent.hpp"
-#include "../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 void SceneManager::loadScene(std::string sceneLocation) {
     dronScene.load(sceneLocation);

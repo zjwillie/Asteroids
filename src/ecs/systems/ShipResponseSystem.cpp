@@ -9,7 +9,7 @@
 #include "../entities/EntityManager.hpp"
 #include "../../events/EventManager.hpp"
 #include "../../math/Vec2.hpp"
-#include "../../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 void ShipResponseSystem::update(WorldContext& worldContext, float deltaTime) {
     const auto& shipHitAsteroidEvents = worldContext.getEventManager().getShipHitAsteroidEvents();

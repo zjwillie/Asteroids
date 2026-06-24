@@ -8,7 +8,7 @@
 #include "../entities/EntityManager.hpp"
 #include "../../events/EventManager.hpp"
 #include "../../events/FireRequestedEvent.hpp"
-#include "../../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 void WeaponSystem::update(WorldContext& worldContext, float) {
     const auto& fireRequests = worldContext.getEventManager().getFireRequests();

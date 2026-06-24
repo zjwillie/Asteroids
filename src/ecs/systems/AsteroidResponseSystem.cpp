@@ -8,7 +8,7 @@
 #include "../../core/WorldContext.hpp"
 #include "../entities/EntityManager.hpp"
 #include "../../events/EventManager.hpp"
-#include "../../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 #include "../../utilities/random/Random.hpp"
 
 void AsteroidResponseSystem::update(WorldContext& worldContext, float deltaTime) {

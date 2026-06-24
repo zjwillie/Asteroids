@@ -63,13 +63,13 @@
     <ClCompile Include="src\ecs\systems\WeaponSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utilities\logger\ConsoleSink.cpp">
+    <ClCompile Include="..\..\Logger\ConsoleSink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utilities\logger\FileSink.cpp">
+    <ClCompile Include="..\..\Logger\FileSink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utilities\logger\Logger.cpp">
+    <ClCompile Include="..\..\Logger\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\utilities\random\Random.cpp">
@@ -185,22 +185,25 @@
     <ClInclude Include="src\ecs\components\Name.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\ConsoleSink.hpp">
+    <ClInclude Include="..\..\Logger\ConsoleSink.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\FileSink.hpp">
+    <ClInclude Include="..\..\Logger\FileSink.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\LogEntry.hpp">
+    <ClInclude Include="..\..\Logger\LogColor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\Logger.hpp">
+    <ClInclude Include="..\..\Logger\LogEntry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\LogLevel.hpp">
+    <ClInclude Include="..\..\Logger\Logger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utilities\logger\LogSink.hpp">
+    <ClInclude Include="..\..\Logger\LogLevel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Logger\LogSink.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ecs\components\Collider.hpp">

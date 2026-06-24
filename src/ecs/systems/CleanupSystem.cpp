@@ -6,7 +6,7 @@
 
 #include "../../core/WorldContext.hpp"
 #include "../entities/EntityManager.hpp"
-#include "../../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 
 void CleanupSystem::update(WorldContext& worldContext, float deltaTime) {

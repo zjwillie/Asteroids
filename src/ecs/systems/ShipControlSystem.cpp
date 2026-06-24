@@ -7,7 +7,7 @@
 #include "../entities/EntityManager.hpp"
 #include "../../input/InputManager.hpp"
 #include "../../events/EventManager.hpp"
-#include "../../utilities/logger/Logger.hpp"
+#include "Logger.hpp"
 
 void ShipControlSystem::update(WorldContext& worldContext, float deltaTime) {
 	auto& playerControlleds = worldContext.getEntityManager().getPlayerControlled();

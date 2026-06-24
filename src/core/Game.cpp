@@ -18,8 +18,8 @@
 // Need while spawning asteroids in init
 #include "../ecs/components/Asteroid.hpp"
 
-#include "../utilities/logger/Logger.hpp"
-#include "../utilities/logger/FileSink.hpp"
+#include "Logger.hpp"
+#include "FileSink.hpp"
 #include "../utilities/random/Random.hpp"
 
 void Game::initialize() {
