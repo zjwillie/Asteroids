@@ -2,6 +2,14 @@
 
 #include "EventManager.hpp"
 
+// SpawnEntityEvent
+void EventManager::emit(const SpawnEntityEvent& event) {
+    spawnEntityEvents_.push_back(event);
+}
+const std::vector<SpawnEntityEvent>& EventManager::getSpawnRequests() const {
+    return spawnEntityEvents_;
+}
+
 // FireRequestedEvent
 void EventManager::emit(const FireRequestedEvent& event) {
     fireRequestedEvents_.push_back(event);
@@ -27,6 +35,7 @@ const std::vector<ShipHitAsteroidEvent>& EventManager::getShipHitAsteroidEvents(
 }
 
 void EventManager::clearFrame() {
+    spawnEntityEvents_.clear();
     fireRequestedEvents_.clear();
     bulletHitAsteroidEvents_.clear();
     shipHitAsteroidEvents_.clear();

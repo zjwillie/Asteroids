@@ -162,6 +162,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ecs\systems\SpawnEntitySystem.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -206,6 +207,7 @@
     <ClCompile Include="src\utilities\random\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ecs\systems\SpawnEntitySystem.hpp" />
     <ClInclude Include="src\events\SpawnEntityEvent.hpp" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\ecs\components\Asteroid.hpp" />

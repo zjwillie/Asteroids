@@ -50,8 +50,22 @@ void Game::initialize() {
 	}
 
 	sceneManager_.loadScene("assets/scenes/game.scene");
-	sceneManager_.debugPrint();
 
+	// emit scene entities (persistent — player, UI)
+	for (auto&& [name, path] : sceneManager_.sceneData.entities.items()) {
+		SpawnEntityEvent event{};
+		event.entity = DronConfig::load(path.as<std::string>());
+		eventManager_.emit(event);
+	}
+
+	// emit level entities (transient — asteroids)
+	for (auto&& [name, path] : sceneManager_.levelData.entities.items()) {
+		SpawnEntityEvent event{};
+		event.entity = DronConfig::load(path.as<std::string>());
+		eventManager_.emit(event);
+	}
+
+	/*
 	// will eventually need to use the scene to decide what is running
 	// for asteroids though.. later when refining
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
@@ -121,7 +135,7 @@ void Game::initialize() {
 	entityManager_.getSprites().add(asteroid3, Sprite{ 24, 24, 255, 100, 100 });
 	entityManager_.getColliders().add(asteroid3, Collider{ Circle{ 21.0f } });
 	entityManager_.getLifetimes().add(asteroid3, Lifetime{ 0.0f, false });
-	
+	*/
 }
 
 void Game::run() {
