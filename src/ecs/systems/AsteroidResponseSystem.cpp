@@ -1,6 +1,5 @@
 #include "pch.h"
 
-#include <vector>
 #include <cmath>
 
 #include "AsteroidResponseSystem.hpp"
@@ -8,81 +7,97 @@
 #include "../../core/WorldContext.hpp"
 #include "../entities/EntityManager.hpp"
 #include "../../events/EventManager.hpp"
+#include "../../events/SpawnEntityEvent.hpp"
+#include "../../scenes/SceneManager.hpp"
 #include "Logger.hpp"
 #include "../../utilities/random/Random.hpp"
 
+namespace {
+    // Hardcoded split rules for now: large -> 2 medium, medium -> 2 small,
+    // small -> none. Returns the archetype name for the next size down, or
+    // nullptr if this size does not split.
+    const char* nextSizeDown(AsteroidSize size) {
+        switch (size) {
+        case AsteroidSize::Large:  return "MEDIUM";
+        case AsteroidSize::Medium: return "SMALL";
+        default:                   return nullptr;   // Small / Dead: no split
+        }
+    }
+    constexpr int SPLIT_COUNT = 2;
+}
+
 void AsteroidResponseSystem::update(WorldContext& worldContext, float deltaTime) {
-    const auto& bulletHitAsteroidEvents = worldContext.getEventManager().getBulletHitAsteroidEvents();
+    EntityManager& entityManager = worldContext.getEntityManager();
+    EventManager& eventManager = worldContext.getEventManager();
+    SceneManager& sceneManager = worldContext.getSceneManager();
+
+    const auto& bulletHitAsteroidEvents = eventManager.getBulletHitAsteroidEvents();
 
     for (const BulletHitAsteroidEvent bulletHitAsteroid : bulletHitAsteroidEvents) {
-        if (!worldContext.getEntityManager().isAlive(bulletHitAsteroid.bulletHandle)) continue;
-        if (!worldContext.getEntityManager().isAlive(bulletHitAsteroid.asteroidHandle)) continue;
+        if (!entityManager.isAlive(bulletHitAsteroid.bulletHandle)) continue;
+        if (!entityManager.isAlive(bulletHitAsteroid.asteroidHandle)) continue;
 
-        Name* asteroidName = worldContext.getEntityManager().getNames().get(bulletHitAsteroid.asteroidHandle);
+        Name* asteroidName = entityManager.getNames().get(bulletHitAsteroid.asteroidHandle);
         LOG_DEBUG("AsteroidResponseSystem", "Destroying {} ({}) '{}'",
             bulletHitAsteroid.asteroidHandle.index,
             bulletHitAsteroid.asteroidHandle.generation,
             asteroidName ? asteroidName->name : "unnamed"
         );
 
-        // split logic
-        Asteroid* asteroid = worldContext.getEntityManager().getAsteroids().get(bulletHitAsteroid.asteroidHandle);
-        Transform* asteroidTransform = worldContext.getEntityManager().getTransforms().get(bulletHitAsteroid.asteroidHandle);
-        Velocity* asteroidVelocity = worldContext.getEntityManager().getVelocities().get(bulletHitAsteroid.asteroidHandle);
+        Asteroid* asteroid = entityManager.getAsteroids().get(bulletHitAsteroid.asteroidHandle);
+        Transform* asteroidTransform = entityManager.getTransforms().get(bulletHitAsteroid.asteroidHandle);
+        Velocity* asteroidVelocity = entityManager.getVelocities().get(bulletHitAsteroid.asteroidHandle);
 
-        if (asteroid && asteroidTransform && asteroidVelocity && asteroid->size != AsteroidSize::Small) {
-            AsteroidSize smallerSize = static_cast<AsteroidSize>(static_cast<int>(asteroid->size) - 1);
-            int spawnCount = (asteroid->size == AsteroidSize::Medium) ? 4 : 2;
+        // Split: emit SpawnEntityEvents for the next size down. Creation is fully
+        // deferred to the factory pipeline — no entityManager.create() here.
+        if (asteroid && asteroidTransform && asteroidVelocity) {
+            const char* smallerArchetype = nextSizeDown(asteroid->size);
+            if (smallerArchetype) {
+                float baseSpeed = asteroidVelocity->linearVelocity.length() * 1.3f;
+                Vec2 direction = asteroidVelocity->linearVelocity.normalized();
+                float spreadAngle = (2.0f * 3.14159f) / SPLIT_COUNT;
 
-            float baseSpeed = asteroidVelocity->linearVelocity.length() * 1.3f;
-            Vec2 direction = asteroidVelocity->linearVelocity.normalized();
+                for (int i = 0; i < SPLIT_COUNT; ++i) {
+                    float angle = spreadAngle * i + Random::floatRange(-5.5f, 5.5f);
+                    float speed = baseSpeed * Random::floatRange(0.8f, 2.3f);
 
-            float spreadAngle = (2.0f * 3.14159f) / spawnCount;
+                    Vec2 spawnVelocity = Vec2{
+                        direction.x * std::cos(angle) - direction.y * std::sin(angle),
+                        direction.x * std::sin(angle) + direction.y * std::cos(angle)
+                    } * speed;
 
-            for (int i = 0; i < spawnCount; ++i) {
-                float angle = spreadAngle * i + Random::floatRange(-5.5f, 5.5f);
-                float speed = baseSpeed * Random::floatRange(0.8f, 2.3f);
+                    // Grab a fresh archetype copy, stamp placement, emit. The
+                    // SpawnEntitySystem turns the document into an entity.
+                    DronWriter blueprint{ sceneManager.getAsteroidArchetype(smallerArchetype) };
+                    blueprint["Transform"]["x"] = static_cast<double>(asteroidTransform->position.x);
+                    blueprint["Transform"]["y"] = static_cast<double>(asteroidTransform->position.y);
+                    blueprint["Velocity"]["dx"] = static_cast<double>(spawnVelocity.x);
+                    blueprint["Velocity"]["dy"] = static_cast<double>(spawnVelocity.y);
 
-                Vec2 spawnVelocity = Vec2{
-                    direction.x * std::cos(angle) - direction.y * std::sin(angle),
-                    direction.x * std::sin(angle) + direction.y * std::cos(angle)
-                } * speed;
-
-                spawnAsteroid(worldContext, asteroidTransform->position, spawnVelocity, smallerSize);
+                    SpawnEntityEvent spawnEvent{};
+                    spawnEvent.entity = blueprint.document();
+                    eventManager.emit(spawnEvent);
+                }
             }
         }
 
-        Lifetime* bulletLifetime = worldContext.getEntityManager().getLifetimes().get(bulletHitAsteroid.bulletHandle);
+        Lifetime* bulletLifetime = entityManager.getLifetimes().get(bulletHitAsteroid.bulletHandle);
         if (bulletLifetime) bulletLifetime->isDead = true;
 
         // score
-        auto& playerControlleds = worldContext.getEntityManager().getPlayerControlled().getAll();
-        for (auto& [index, playerControlled] : playerControlleds) {
-            switch (asteroid->size) {
-            case AsteroidSize::Large:  playerControlled.score += 20;  break;
-            case AsteroidSize::Medium: playerControlled.score += 50;  break;
-            case AsteroidSize::Small:  playerControlled.score += 100; break;
-            default: break;
+        if (asteroid) {
+            auto& playerControlleds = entityManager.getPlayerControlled().getAll();
+            for (auto& [index, playerControlled] : playerControlleds) {
+                switch (asteroid->size) {
+                case AsteroidSize::Large:  playerControlled.score += 20;  break;
+                case AsteroidSize::Medium: playerControlled.score += 50;  break;
+                case AsteroidSize::Small:  playerControlled.score += 100; break;
+                default: break;
+                }
             }
         }
 
-        Lifetime* asteroidLifetime = worldContext.getEntityManager().getLifetimes().get(bulletHitAsteroid.asteroidHandle);
+        Lifetime* asteroidLifetime = entityManager.getLifetimes().get(bulletHitAsteroid.asteroidHandle);
         if (asteroidLifetime) asteroidLifetime->isDead = true;
     }
-}
-
-void AsteroidResponseSystem::spawnAsteroid(WorldContext& worldContext, Vec2 position, Vec2 velocity, AsteroidSize size) {
-	auto& entityManager = worldContext.getEntityManager();
-	EntityHandle newAsteroid = entityManager.create();
-
-	int spriteSize = static_cast<int>(size) * 8;
-	float radius = static_cast<float>(static_cast<int>(size)) * 7.0f;
-
-	entityManager.getAsteroids().add(newAsteroid, { size });
-	entityManager.getTransforms().add(newAsteroid, Transform{ position, 0.0f });
-	entityManager.getVelocities().add(newAsteroid, Velocity{ velocity, 0.0f });
-	entityManager.getSprites().add(newAsteroid, Sprite{ spriteSize, spriteSize, 255, 100, 100 });
-	entityManager.getColliders().add(newAsteroid, Collider{ Circle{ radius } });
-	entityManager.getNames().add(newAsteroid, Name{ "Asteroid" });
-	entityManager.getLifetimes().add(newAsteroid, Lifetime{ 0.0f, false });
 }

@@ -32,7 +32,7 @@ hitboxes = [
 [Asteroid]
 splits = [
     { name = LARGE,  into = MEDIUM, count = 2 },
-    { name = MEDIUM, into = SMALL,  count = 2 },
+    { name = MEDIUM, into = SMALL,  count = 4 },
     { name = SMALL,  into = NONE,   count = 0 }
 ]
 values = [

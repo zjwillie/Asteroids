@@ -14,6 +14,7 @@
 #include "../ecs/systems/CollisionSystem.hpp"
 #include "../ecs/systems/AsteroidResponseSystem.hpp"
 #include "../ecs/systems/ShipResponseSystem.hpp"
+#include "../ecs/systems/SpawnEntitySystem.hpp"
 
 // Need while spawning asteroids in init
 #include "../ecs/components/Asteroid.hpp"
@@ -21,6 +22,49 @@
 #include "Logger.hpp"
 #include "FileSink.hpp"
 #include "../utilities/random/Random.hpp"
+
+#include <cmath>
+
+namespace {
+	// Axis-aligned rectangle [x, y, w, h], as authored in a level's
+	// distribution / exclusion lists.
+	struct Rect { float x, y, w, h; };
+
+	// Read a DrON list-of-[x, y, w, h] into Rects. Missing entries read as 0.
+	std::vector<Rect> readRects(const DronValue& list) {
+		std::vector<Rect> rects;
+		for (auto&& r : list.elements()) {
+			rects.push_back(Rect{
+				r[static_cast<std::size_t>(0)].get_or(0.0f),
+				r[static_cast<std::size_t>(1)].get_or(0.0f),
+				r[static_cast<std::size_t>(2)].get_or(0.0f),
+				r[static_cast<std::size_t>(3)].get_or(0.0f),
+			});
+		}
+		return rects;
+	}
+
+	bool contains(const Rect& r, float x, float y) {
+		return x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h;
+	}
+
+	// Uniformly sample a point inside one of the distribution rects, rejecting
+	// points that land in any exclusion rect. Falls back to a distribution
+	// centre if no free spot is found within the attempt budget.
+	Vec2 samplePosition(const std::vector<Rect>& distribution, const std::vector<Rect>& exclusion) {
+		if (distribution.empty()) return Vec2{ 0.0f, 0.0f };
+		for (int attempt = 0; attempt < 32; ++attempt) {
+			const Rect& r = distribution[Random::intRange(0, static_cast<int>(distribution.size()) - 1)];
+			float x = Random::floatRange(r.x, r.x + r.w);
+			float y = Random::floatRange(r.y, r.y + r.h);
+			bool blocked = false;
+			for (const Rect& e : exclusion) if (contains(e, x, y)) { blocked = true; break; }
+			if (!blocked) return Vec2{ x, y };
+		}
+		const Rect& r = distribution[0];
+		return Vec2{ r.x + r.w * 0.5f, r.y + r.h * 0.5f };
+	}
+}
 
 void Game::initialize() {
 	Logger::initialize();
@@ -49,93 +93,76 @@ void Game::initialize() {
 		return;
 	}
 
+	Random::initialize();
+
 	sceneManager_.loadScene("assets/scenes/game.scene");
 
-	// emit scene entities (persistent — player, UI)
+	// emit scene entities (persistent — player, UI). Every named-entity spawn
+	// passes through applyOverrides so level-specific overrides are always applied.
 	for (auto&& [name, path] : sceneManager_.sceneData.entities.items()) {
+		DronDocument doc = DronConfig::load(path.as<std::string>());
+		sceneManager_.applyOverrides(name, doc);
 		SpawnEntityEvent event{};
-		event.entity = DronConfig::load(path.as<std::string>());
+		event.entity = std::move(doc);
 		eventManager_.emit(event);
 	}
 
-	// emit level entities (transient — asteroids)
+	// emit fixed level entities (any explicitly listed in [Entities])
 	for (auto&& [name, path] : sceneManager_.levelData.entities.items()) {
+		DronDocument doc = DronConfig::load(path.as<std::string>());
+		sceneManager_.applyOverrides(name, doc);
 		SpawnEntityEvent event{};
-		event.entity = DronConfig::load(path.as<std::string>());
+		event.entity = std::move(doc);
 		eventManager_.emit(event);
 	}
 
-	/*
-	// will eventually need to use the scene to decide what is running
-	// for asteroids though.. later when refining
+	// spawn the level's asteroid field: `number` large asteroids at random
+	// positions inside `distribution` (avoiding `exclusion`), each with a random
+	// heading and a speed within `speed`. Built from the cached LARGE archetype,
+	// stamped, and routed through the same SpawnEntityEvent -> factory pipeline.
+	{
+		const DronValue& config = sceneManager_.levelData.asteroids;
+		int count = config["number"].get_or(0);
+		std::vector<Rect> distribution = readRects(config["distribution"]);
+		std::vector<Rect> exclusion = readRects(config["exclusion"]);
+		float speedMin = config["speed"][static_cast<std::size_t>(0)].get_or(20.0f);
+		float speedMax = config["speed"][static_cast<std::size_t>(1)].get_or(50.0f);
+
+		for (int i = 0; i < count; ++i) {
+			Vec2 position = samplePosition(distribution, exclusion);
+			float heading = Random::floatRange(0.0f, 2.0f * 3.14159265f);
+			float speed = Random::floatRange(speedMin, speedMax);
+			Vec2 velocity = Vec2{ std::cos(heading), std::sin(heading) } * speed;
+
+			DronWriter blueprint{ sceneManager_.getAsteroidArchetype("LARGE") };
+			blueprint["Transform"]["x"] = static_cast<double>(position.x);
+			blueprint["Transform"]["y"] = static_cast<double>(position.y);
+			blueprint["Velocity"]["dx"] = static_cast<double>(velocity.x);
+			blueprint["Velocity"]["dy"] = static_cast<double>(velocity.y);
+
+			SpawnEntityEvent event{};
+			event.entity = blueprint.document();
+			eventManager_.emit(event);
+		}
+	}
+
+	
+	// SpawnEntitySystem runs AFTER any system that can emit a SpawnEntityEvent
+	// (e.g. AsteroidResponseSystem's splits), because EventManager::clearFrame()
+	// wipes the queue every frame — a request must be consumed the same frame it
+	// is emitted. Initial scene/level spawns (emitted before the loop) are still
+	// picked up on frame 1.
 	systemManager_.registerSystem(std::make_unique<ShipControlSystem>());
 	systemManager_.registerSystem(std::make_unique<MovementSystem>());
 	systemManager_.registerSystem(std::make_unique<WarpSystem>());
 	systemManager_.registerSystem(std::make_unique<LifetimeSystem>());
 	systemManager_.registerSystem(std::make_unique<CollisionSystem>());
 	systemManager_.registerSystem(std::make_unique<AsteroidResponseSystem>());
+	systemManager_.registerSystem(std::make_unique<SpawnEntitySystem>());
 	systemManager_.registerSystem(std::make_unique<ShipResponseSystem>());
 	systemManager_.registerSystem(std::make_unique<WeaponSystem>());
 	systemManager_.registerSystem(std::make_unique<CleanupSystem>());
 	systemManager_.registerSystem(std::make_unique<RenderSystem>());
-
-	EntityHandle e1 = entityManager_.create();
-	entityManager_.getNames().add(e1, Name{ "Player1" });
-	entityManager_.getTransforms().add(e1, Transform{ Vec2{ 20.0f, 30.0f }, 0.0f });
-	entityManager_.getVelocities().add(e1, Velocity{ Vec2{ 0.0f, 0.0f }, 0.0f });
-	entityManager_.getSprites().add(e1, Sprite{ 10, 10, 255, 100, 100 });
-	entityManager_.getPlayerControlled().add(e1, PlayerControlled{});
-	entityManager_.getColliders().add(e1, Collider{ Circle{ 5.0f } });
-
-	EntityHandle e2 = entityManager_.create();
-	entityManager_.getTransforms().add(e2, Transform{ Vec2{ 80.0f, 60.0f }, 0.0f });
-	entityManager_.getVelocities().add(e2, Velocity{ Vec2{ -3.0f, 5.0f }, 0.0f });
-	entityManager_.getSprites().add(e2, Sprite{ 10, 10, 100, 255, 100 });
-	entityManager_.getLifetimes().add(e2, Lifetime{ 10.0, false });
-
-	EntityHandle e3 = entityManager_.create();
-	entityManager_.getTransforms().add(e3, Transform{ Vec2{ 160.0f, 90.0f }, 0.0f });
-	entityManager_.getVelocities().add(e3, Velocity{ Vec2{ 60.0f, -40.0f }, 0.0f });
-	entityManager_.getSprites().add(e3, Sprite{ 10, 10, 100, 100, 255 });
-
-	EntityHandle e4 = entityManager_.create();
-	entityManager_.getTransforms().add(e4, Transform{ Vec2{ 240.0f, 120.0f }, 0.0f });
-	entityManager_.getVelocities().add(e4, Velocity{ Vec2{ -50.0f, -30.0f }, 0.0f });
-	entityManager_.getSprites().add(e4, Sprite{ 10, 10, 255, 255, 100 });
-
-	EntityHandle e5 = entityManager_.create();
-	entityManager_.getTransforms().add(e5, Transform{ Vec2{ 60.0f, 150.0f }, 0.0f });
-	entityManager_.getVelocities().add(e5, Velocity{ Vec2{ 70.0f, 60.0f }, 0.0f });
-	entityManager_.getSprites().add(e5, Sprite{ 10, 10, 255, 100, 255 });
-
-	// three large asteroids away from ship
-	EntityHandle asteroid1 = entityManager_.create();
-	entityManager_.getNames().add(asteroid1, Name{ "Asteroid" });
-	entityManager_.getAsteroids().add(asteroid1, { AsteroidSize::Large });
-	entityManager_.getTransforms().add(asteroid1, Transform{ Vec2{ 220.0f, 40.0f }, 0.0f });
-	entityManager_.getVelocities().add(asteroid1, Velocity{ Vec2{ -15.0f, 8.0f }, 0.0f });
-	entityManager_.getSprites().add(asteroid1, Sprite{ 24, 24, 255, 100, 100 });
-	entityManager_.getColliders().add(asteroid1, Collider{ Circle{ 21.0f } });
-	entityManager_.getLifetimes().add(asteroid1, Lifetime{ 0.0f, false });
-
-	EntityHandle asteroid2 = entityManager_.create();
-	entityManager_.getNames().add(asteroid2, Name{ "Asteroid" });
-	entityManager_.getAsteroids().add(asteroid2, { AsteroidSize::Large });
-	entityManager_.getTransforms().add(asteroid2, Transform{ Vec2{ 280.0f, 140.0f }, 0.0f });
-	entityManager_.getVelocities().add(asteroid2, Velocity{ Vec2{ -10.0f, -12.0f }, 0.0f });
-	entityManager_.getSprites().add(asteroid2, Sprite{ 24, 24, 255, 100, 100 });
-	entityManager_.getColliders().add(asteroid2, Collider{ Circle{ 21.0f } });
-	entityManager_.getLifetimes().add(asteroid2, Lifetime{ 0.0f, false });
-
-	EntityHandle asteroid3 = entityManager_.create();
-	entityManager_.getNames().add(asteroid3, Name{ "Asteroid" });
-	entityManager_.getAsteroids().add(asteroid3, { AsteroidSize::Large });
-	entityManager_.getTransforms().add(asteroid3, Transform{ Vec2{ 160.0f, 155.0f }, 0.0f });
-	entityManager_.getVelocities().add(asteroid3, Velocity{ Vec2{ 12.0f, -9.0f }, 0.0f });
-	entityManager_.getSprites().add(asteroid3, Sprite{ 24, 24, 255, 100, 100 });
-	entityManager_.getColliders().add(asteroid3, Collider{ Circle{ 21.0f } });
-	entityManager_.getLifetimes().add(asteroid3, Lifetime{ 0.0f, false });
-	*/
 }
 
 void Game::run() {
